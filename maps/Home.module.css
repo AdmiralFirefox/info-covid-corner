@@ -26,5 +26,133 @@
     margin: 0em 2em;
   }
 }
+.home-backround {
+  background: #232528;
+}
+
+.web-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5em;
+}
+.web-title h1 {
+  color: #fff;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+.web-title .web-logo {
+  position: relative;
+  width: clamp(3.5em, 7vw, 5em);
+  height: 5em;
+  margin-left: 0.8em;
+}
+@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+  .web-title h1 {
+    font-size: min(max(1.8rem, 4vw), 2.8rem);
+  }
+  .web-title .web-logo {
+    min-width: 3.5em;
+    width: 7vw;
+    max-width: 5em;
+  }
+}
+
+.global-info-title {
+  text-align: center;
+  margin-top: 1em;
+}
+.global-info-title h1 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  color: #fff;
+}
+.global-info-title p {
+  font-weight: 500;
+  color: #fff;
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+}
+@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+  .global-info-title h1 {
+    font-size: min(max(1.5rem, 4vw), 2.2rem);
+  }
+  .global-info-title p {
+    font-size: min(max(0.85rem, 1.8vw), 1.1rem);
+  }
+}
+
+.global-info-content-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2.5em 0em;
+}
+.global-info-content-wrapper .global-info-content-content {
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(1, 1fr);
+  width: min(80%, 20em);
+}
+.global-info-content-wrapper .global-info-content-content .global-info-content-card-cases {
+  background: #ba292e;
+  text-align: center;
+  padding: 1em;
+  border-radius: 15px;
+}
+.global-info-content-wrapper .global-info-content-content .global-info-content-card-cases h1 {
+  color: #fff;
+  font-size: min(max(1.2rem, 2vw), 1.8rem);
+}
+.global-info-content-wrapper .global-info-content-content .global-info-content-card-cases p {
+  color: #fff;
+  font-size: min(max(1.1rem, 2vw), 1.4rem);
+  font-weight: 500;
+}
+.global-info-content-wrapper .global-info-content-content .global-info-content-card-deaths {
+  background: #e15d3a;
+  text-align: center;
+  padding: 1em;
+  border-radius: 15px;
+}
+.global-info-content-wrapper .global-info-content-content .global-info-content-card-deaths h1 {
+  color: #fff;
+  font-size: min(max(1.2rem, 2vw), 1.8rem);
+}
+.global-info-content-wrapper .global-info-content-content .global-info-content-card-deaths p {
+  color: #fff;
+  font-size: min(max(1.1rem, 2vw), 1.4rem);
+  font-weight: 500;
+}
+.global-info-content-wrapper .global-info-content-content .global-info-content-card-recovered {
+  background: #00897b;
+  text-align: center;
+  padding: 1em;
+  border-radius: 15px;
+}
+.global-info-content-wrapper .global-info-content-content .global-info-content-card-recovered h1 {
+  color: #fff;
+  font-size: min(max(1.2rem, 2vw), 1.8rem);
+}
+.global-info-content-wrapper .global-info-content-content .global-info-content-card-recovered p {
+  color: #fff;
+  font-size: min(max(1.1rem, 2vw), 1.4rem);
+  font-weight: 500;
+}
+
+@media (min-width: 45em) {
+  .web-title {
+    margin-top: 1.3em;
+  }
+
+  .global-info-title {
+    margin-top: 2em;
+  }
+
+  .global-info-content-wrapper {
+    margin: 3em 7em;
+  }
+  .global-info-content-wrapper .global-info-content-content {
+    grid-gap: 3em;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+}
 
 /*# sourceMappingURL=Home.module.css.map */
