@@ -1,0 +1,36 @@
+@use "../themeprovider/themeprovider" as theme-provider;
+
+.navbar-wrapper {
+  background: theme-provider.$nav-background-color;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+
+  a {
+    margin: 0em 1em;
+
+    .navbar-icon {
+      color: theme-provider.$white-color;
+      font-size: 3.5rem;
+      transition: color 0.4s ease-in-out;
+
+      &:hover {
+        color: theme-provider.$light-green-color-hover;
+      }
+    }
+
+    .navbar-icon-active {
+      color: theme-provider.$light-green-color-hover;
+      font-size: 3.5rem;
+      transition: color 0.4s ease-in-out;
+    }
+  }
+}
+
+@media (min-width: theme-provider.$navbar-media-query) {
+  .navbar-wrapper {
+    a {
+      margin: 0em 2em;
+    }
+  }
+}

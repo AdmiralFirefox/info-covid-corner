@@ -1,0 +1,15 @@
+import { FC } from "react";
+import Meta from "./Meta";
+import Navbar from "./Navbar/navbar";
+
+const Layout: FC = ({ children }) => {
+  return (
+    <>
+      <Meta />
+      <Navbar />
+      {children}
+    </>
+  );
+};
+
+export default Layout;
