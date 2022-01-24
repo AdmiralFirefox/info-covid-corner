@@ -1,3 +1,95 @@
+.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+  background: none !important;
+  box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 10px !important;
+}
+
+.select-wrapper {
+  background: #37474f;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.select-input-label {
+  color: #fff !important;
+}
+
+.select-items {
+  color: #fff !important;
+}
+
+.css-bpeome-MuiSvgIcon-root-MuiSelect-icon {
+  color: #fff !important;
+}
+
+.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
+  color: #fff !important;
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  background: #37474f !important;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.css-1hau5ki-MuiButtonBase-root-MuiMenuItem-root:hover {
+  background: #495f69 !important;
+}
+
+.css-1hau5ki-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
+  background: #495f69 !important;
+}
+
+.pagination-wrapper {
+  margin: 0em 1em;
+}
+
+.pagination-buttons-container {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  user-select: none;
+  margin-bottom: 3em;
+  line-height: 4em;
+  font-size: 1rem;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+.pagination-buttons-container a {
+  border: 3px solid #fff;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.8em;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  margin: 0em 0.5em;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.pagination-buttons-container a:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+.active-button a {
+  color: #000;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.disabled-button a {
+  color: #555555;
+  background-color: #d0ccd0;
+  border: 3px solid #d0ccd0;
+  cursor: pointer;
+}
+.disabled-button a:hover {
+  color: #555555;
+  background-color: #d0ccd0;
+}
+
 html,
 body {
   padding: 0;

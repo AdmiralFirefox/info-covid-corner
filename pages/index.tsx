@@ -5,24 +5,71 @@ import type { NextPage } from "next";
 import { format } from "date-fns";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
+import CountryList from "../components/CountryList/countrylist";
+import { CovidInfoProps } from "../types/CovidInfoTypes";
+import ReactPaginate from "react-paginate";
+import { SelectChangeEvent } from "@mui/material/Select";
 import homeStyles from "../styles/Home.module.scss";
 
-interface CovidInfoProps {
-  covidData: {
-    Global: {
-      TotalConfirmed: number;
-      TotalDeaths: number;
-      TotalRecovered: number;
-      NewConfirmed: number;
-      NewDeaths: number;
-      NewRecovered: number;
-      Date: string;
-    };
-  };
-}
-
 const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
-  const [covidInfo, setCovidInfo] = useState(covidData);
+  const countries = covidData.Countries;
+
+  const [sortCovidInfo, setSortCovidInfo] = useState("cases-desc");
+
+  const sortedCountry = countries.sort((a, b) =>
+    sortCovidInfo === "cases-asc"
+      ? a.TotalConfirmed > b.TotalConfirmed
+        ? 1
+        : -1
+      : sortCovidInfo === "cases-desc"
+      ? b.TotalConfirmed > a.TotalConfirmed
+        ? 1
+        : -1
+      : sortCovidInfo === "deaths-asc"
+      ? a.TotalDeaths > b.TotalDeaths
+        ? 1
+        : -1
+      : sortCovidInfo === "deaths-desc"
+      ? b.TotalDeaths > a.TotalDeaths
+        ? 1
+        : -1
+      : sortCovidInfo === "recovered-asc"
+      ? a.TotalRecovered > b.TotalRecovered
+        ? 1
+        : -1
+      : sortCovidInfo === "recovered-desc"
+      ? b.TotalRecovered > a.TotalRecovered
+        ? 1
+        : -1
+      : 0
+  );
+
+  const [pageNumber, setPageNumber] = useState(0);
+
+  const datumPerPage = 10;
+  const pagesVisited = pageNumber * datumPerPage;
+
+  const displayCountryData = sortedCountry.slice(
+    pagesVisited,
+    pagesVisited + datumPerPage
+  );
+
+  const pageCount = Math.ceil(sortedCountry.length / datumPerPage);
+
+  const changePage = ({ selected }: { selected: number }) => {
+    setPageNumber(selected);
+  };
+
+  //Handling Select Changles
+  const handleSelectChange = (e: SelectChangeEvent) => {
+    setSortCovidInfo(e.target.value);
+  };
+
+  //Covid Global Cases Date Updated
+  const globalInfoUpdate = format(
+    new Date(covidData.Global.Date),
+    "MM-dd-yyyy h:mm:ss a"
+  );
 
   useEffect(() => {
     document.getElementsByTagName("body")[0].className =
@@ -32,11 +79,6 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
       document.getElementsByTagName("body")[0].className = "";
     };
   }, []);
-
-  const globalInfoUpdate = format(
-    new Date(covidInfo.Global.Date),
-    "MM-dd-yyyy h:mm:ss a"
-  );
 
   return (
     <>
@@ -54,7 +96,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
 
       <div className={homeStyles["global-info-title"]}>
         <h1>Global Info</h1>
-        {covidInfo.Global.Date === undefined ? (
+        {covidData.Global.Date === undefined ? (
           <p>Date Unvailable...</p>
         ) : (
           <p>Updated: {globalInfoUpdate}</p>
@@ -73,7 +115,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
             <p>
               <CountUp
                 start={0}
-                end={covidInfo.Global.TotalConfirmed}
+                end={covidData.Global.TotalConfirmed}
                 duration={3}
                 separator=","
               />
@@ -90,7 +132,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
             <p>
               <CountUp
                 start={0}
-                end={covidInfo.Global.TotalDeaths}
+                end={covidData.Global.TotalDeaths}
                 duration={3}
                 separator=","
               />
@@ -107,7 +149,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
             <p>
               <CountUp
                 start={0}
-                end={covidInfo.Global.TotalRecovered}
+                end={covidData.Global.TotalRecovered}
                 duration={3}
                 separator=","
               />
@@ -124,7 +166,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
             <p>
               <CountUp
                 start={0}
-                end={covidInfo.Global.NewConfirmed}
+                end={covidData.Global.NewConfirmed}
                 duration={3}
                 separator=","
               />
@@ -141,7 +183,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
             <p>
               <CountUp
                 start={0}
-                end={covidInfo.Global.NewDeaths}
+                end={covidData.Global.NewDeaths}
                 duration={3}
                 separator=","
               />
@@ -158,13 +200,34 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
             <p>
               <CountUp
                 start={0}
-                end={covidInfo.Global.NewRecovered}
+                end={covidData.Global.NewRecovered}
                 duration={3}
                 separator=","
               />
             </p>
           </motion.div>
         </div>
+      </div>
+
+      <CountryList
+        covidInfo={displayCountryData}
+        sortCovidInfo={sortCovidInfo}
+        handleSelectChange={handleSelectChange}
+      />
+      <div className="pagination-wrapper">
+        <ReactPaginate
+          pageCount={pageCount}
+          onPageChange={changePage}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={1}
+          previousLabel={"Previous"}
+          nextLabel={"Next"}
+          containerClassName={"pagination-buttons-container"}
+          previousLinkClassName={"previous-button"}
+          nextLinkClassName={"next-button"}
+          disabledClassName={"disabled-button"}
+          activeClassName={"active-button"}
+        />
       </div>
     </>
   );

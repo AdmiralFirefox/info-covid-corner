@@ -1,0 +1,53 @@
+@use "../themeprovider/themeprovider" as theme-provider;
+
+.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+  background: none !important;
+  box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 10px !important;
+}
+
+//Form Control Wrapper
+.select-wrapper {
+  background: theme-provider.$card-color;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+//Select Input Label
+.select-input-label {
+  color: theme-provider.$white-color !important;
+}
+
+//Select Items
+.select-items {
+  color: theme-provider.$white-color !important;
+}
+
+//Select Icon Open
+.css-bpeome-MuiSvgIcon-root-MuiSelect-icon {
+  color: theme-provider.$white-color !important;
+}
+
+//Select Icon Close
+.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
+  color: theme-provider.$white-color !important;
+}
+
+//Select Background
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  background: #37474f !important;
+  color: theme-provider.$white-color;
+  border-radius: 10px;
+}
+
+//Select List
+.css-1hau5ki-MuiButtonBase-root-MuiMenuItem-root {
+  &:hover {
+    background: theme-provider.$card-color-hover !important;
+  }
+}
+
+//Active List
+.css-1hau5ki-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
+  background: theme-provider.$card-color-hover !important;
+}
