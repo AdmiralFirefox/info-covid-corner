@@ -373,6 +373,225 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+.vaccine-info-background {
+  background: #232528;
+}
+
+.vaccine-info-title {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+.vaccine-info-title h1 {
+  color: #fff;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  text-align: center;
+  margin: 0em 1em;
+}
+.vaccine-info-title .vaccine-info-logo {
+  position: relative;
+  width: clamp(3.2em, 7vw, 4.5em);
+  height: 5em;
+}
+@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+  .vaccine-info-title h1 {
+    font-size: min(max(1.6rem, 4vw), 2.5rem);
+  }
+  .vaccine-info-title .vaccine-info-logo {
+    min-width: 3.2em;
+    width: 7vw;
+    max-width: 4.5em;
+  }
+}
+
+.vaccine-info-input-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5em;
+}
+
+.vaccine-info-country-result {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  grid-gap: 2em;
+  margin: 2em 4em;
+}
+.vaccine-info-country-result .vaccine-info-country-result-card {
+  background: #37474f;
+  color: #fff;
+  padding: 1em;
+  font-size: 1.3rem;
+  font-weight: 500;
+  transition: background 0.5s ease-in-out;
+}
+.vaccine-info-country-result .vaccine-info-country-result-card:hover {
+  background: #495f69;
+}
+
+@media (min-width: 40em) {
+  .vaccine-info-title {
+    flex-direction: row;
+    margin-top: 1.5em;
+  }
+  .vaccine-info-title h1 {
+    margin: 0em;
+  }
+  .vaccine-info-title .vaccine-info-logo {
+    margin-left: 0.8em;
+  }
+
+  .vaccine-info-input-form {
+    margin-top: 2em;
+  }
+}
+.vaccine-cases-info-background {
+  background: #232528;
+}
+
+.vaccine-back-button {
+  color: #fff;
+  font-size: 2.3rem;
+  transition: color 0.5s ease-in-out;
+  margin: 0.4em 0em 0em 0.4em;
+}
+.vaccine-back-button:hover {
+  color: #d9d9d9;
+}
+
+.vaccine-cases-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.vaccine-cases-title h1 {
+  color: #fff;
+  font-size: clamp(1.5rem, 2.3vw, 2.2rem);
+}
+.vaccine-cases-title p {
+  color: #fff;
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  font-weight: 500;
+}
+@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+  .vaccine-cases-title h1 {
+    font-size: min(max(1.5rem, 2.3vw), 2.2rem);
+  }
+  .vaccine-cases-title p {
+    font-size: min(max(0.9rem, 1.3vw), 1.1rem);
+  }
+}
+
+.country-vaccine-info-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2em 2em 3em 2em;
+}
+.country-vaccine-info-wrapper .country-vaccine-info-content {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 2em;
+}
+.country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-administered {
+  background: #3c6979;
+  padding: 1em;
+  text-align: center;
+  border-radius: 10px;
+}
+.country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-administered h1 {
+  color: #fff;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+.country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-administered p {
+  color: #fff;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+  .country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-administered h1 {
+    font-size: min(max(1.2rem, 2vw), 1.5rem);
+  }
+  .country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-administered p {
+    font-size: min(max(0.9rem, 1.5vw), 1.1rem);
+  }
+}
+.country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-vaccinated {
+  background: #4c57a6;
+  padding: 1em;
+  text-align: center;
+  border-radius: 10px;
+}
+.country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-vaccinated h1 {
+  color: #fff;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+.country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-vaccinated p {
+  color: #fff;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+  .country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-vaccinated h1 {
+    font-size: min(max(1.2rem, 2vw), 1.5rem);
+  }
+  .country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-vaccinated p {
+    font-size: min(max(0.9rem, 1.5vw), 1.1rem);
+  }
+}
+.country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-partially-vaccinated {
+  background: #6087b8;
+  padding: 1em;
+  text-align: center;
+  border-radius: 10px;
+}
+.country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-partially-vaccinated h1 {
+  color: #fff;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+.country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-partially-vaccinated p {
+  color: #fff;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+  .country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-partially-vaccinated h1 {
+    font-size: min(max(1.2rem, 2vw), 1.5rem);
+  }
+  .country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-partially-vaccinated p {
+    font-size: min(max(0.9rem, 1.5vw), 1.1rem);
+  }
+}
+.country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-population {
+  background: #3a435e;
+  padding: 1em;
+  text-align: center;
+  border-radius: 10px;
+}
+.country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-population h1 {
+  color: #fff;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+.country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-population p {
+  color: #fff;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+  .country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-population h1 {
+    font-size: min(max(1.2rem, 2vw), 1.5rem);
+  }
+  .country-vaccine-info-wrapper .country-vaccine-info-content .country-vaccine-info-card-population p {
+    font-size: min(max(0.9rem, 1.5vw), 1.1rem);
+  }
+}
+
+@media (min-width: 40em) {
+  .country-vaccine-info-wrapper {
+    margin: 2.5em 2em 3em 2em;
+  }
+  .country-vaccine-info-wrapper .country-vaccine-info-content {
+    grid-gap: 3em;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 .country-lists-title {
   display: flex;
   flex-direction: column;

@@ -1,18 +1,14 @@
 import { useState, useEffect, ChangeEvent } from "react";
 import Link from "next/link";
-import { NextPage } from "next";
-import { GetStaticProps } from "next";
+import { NextPage, GetStaticProps } from "next";
+import { CountriesTypes } from "../types/CountriesTypes";
 import Image from "next/image";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Fuse from "fuse.js";
 import covidInfoStyles from "../styles/Home.module.scss";
 
-interface CovidInfoProps {
-  countries: {};
-}
-
-const CovidInfo: NextPage<CovidInfoProps> = ({ countries }) => {
+const CovidInfo: NextPage<CountriesTypes> = ({ countries }) => {
   const [searchCountry, setSearchCountry] = useState("");
 
   const arrayCountries = Object.keys(countries);
