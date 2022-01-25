@@ -46,21 +46,21 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
 
   const [pageNumber, setPageNumber] = useState(0);
 
-  const datumPerPage = 10;
-  const pagesVisited = pageNumber * datumPerPage;
+  const countryPerPage = 10;
+  const pagesVisited = pageNumber * countryPerPage;
 
   const displayCountryData = sortedCountry.slice(
     pagesVisited,
-    pagesVisited + datumPerPage
+    pagesVisited + countryPerPage
   );
 
-  const pageCount = Math.ceil(sortedCountry.length / datumPerPage);
+  const pageCount = Math.ceil(sortedCountry.length / countryPerPage);
 
   const changePage = ({ selected }: { selected: number }) => {
     setPageNumber(selected);
   };
 
-  //Handling Select Changles
+  //Handling Select Changes
   const handleSelectChange = (e: SelectChangeEvent) => {
     setSortCovidInfo(e.target.value);
   };
