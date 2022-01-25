@@ -4,6 +4,8 @@ import { format } from "date-fns";
 import Link from "next/link";
 import { IoArrowBackCircle } from "react-icons/io5";
 import { IconContext } from "react-icons";
+import CountUp from "react-countup";
+import { motion } from "framer-motion";
 import countryVaccinesInfoStyles from "../../styles/Home.module.scss";
 
 type ContextType = {
@@ -68,7 +70,10 @@ const Country: NextPage<CountryProps> = ({ countryInfo }) => {
         <div
           className={countryVaccinesInfoStyles["country-vaccine-info-content"]}
         >
-          <div
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.6 }}
             className={
               countryVaccinesInfoStyles[
                 "country-vaccine-info-card-administered"
@@ -76,17 +81,39 @@ const Country: NextPage<CountryProps> = ({ countryInfo }) => {
             }
           >
             <h1>Administered:</h1>
-            <p>{countryInfo.All.administered}</p>
-          </div>
-          <div
+            <p>
+              <CountUp
+                start={0}
+                end={countryInfo.All.administered}
+                duration={3}
+                separator=","
+              />
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className={
               countryVaccinesInfoStyles["country-vaccine-info-card-vaccinated"]
             }
           >
             <h1>Vaccinated:</h1>
-            <p>{countryInfo.All.people_vaccinated}</p>
-          </div>
-          <div
+            <p>
+              <CountUp
+                start={0}
+                end={countryInfo.All.people_vaccinated}
+                duration={3}
+                separator=","
+              />
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className={
               countryVaccinesInfoStyles[
                 "country-vaccine-info-card-partially-vaccinated"
@@ -94,16 +121,34 @@ const Country: NextPage<CountryProps> = ({ countryInfo }) => {
             }
           >
             <h1>Partially Vaccinated:</h1>
-            <p>{countryInfo.All.people_partially_vaccinated}</p>
-          </div>
-          <div
+            <p>
+              <CountUp
+                start={0}
+                end={countryInfo.All.people_partially_vaccinated}
+                duration={3}
+                separator=","
+              />
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className={
               countryVaccinesInfoStyles["country-vaccine-info-card-population"]
             }
           >
             <h1>Population:</h1>
-            <p>{countryInfo.All.population}</p>
-          </div>
+            <p>
+              <CountUp
+                start={0}
+                end={countryInfo.All.population}
+                duration={3}
+                separator=","
+              />
+            </p>
+          </motion.div>
         </div>
       </div>
     </>

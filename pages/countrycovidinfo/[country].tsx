@@ -4,6 +4,8 @@ import { format } from "date-fns";
 import Link from "next/link";
 import { IoArrowBackCircle } from "react-icons/io5";
 import { IconContext } from "react-icons";
+import CountUp from "react-countup";
+import { motion } from "framer-motion";
 import countryCasesInfoStyles from "../../styles/Home.module.scss";
 
 type ContextType = {
@@ -64,34 +66,77 @@ const Country: NextPage<CountryProps> = ({ countryInfo }) => {
 
       <div className={countryCasesInfoStyles["country-cases-info-wrapper"]}>
         <div className={countryCasesInfoStyles["country-cases-info-content"]}>
-          <div
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.6 }}
             className={countryCasesInfoStyles["country-cases-info-card-cases"]}
           >
             <h1>Confirmed Cases:</h1>
-            <p>{countryInfo.All.confirmed}</p>
-          </div>
-          <div
+            <p>
+              <CountUp
+                start={0}
+                end={countryInfo.All.confirmed}
+                duration={3}
+                separator=","
+              />
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className={countryCasesInfoStyles["country-cases-info-card-deaths"]}
           >
             <h1>Deaths:</h1>
-            <p>{countryInfo.All.deaths}</p>
-          </div>
-          <div
+            <p>
+              <CountUp
+                start={0}
+                end={countryInfo.All.deaths}
+                duration={3}
+                separator=","
+              />
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className={
               countryCasesInfoStyles["country-cases-info-card-recovered"]
             }
           >
             <h1>Recovered:</h1>
-            <p>{countryInfo.All.recovered}</p>
-          </div>
-          <div
+            <p>
+              <CountUp
+                start={0}
+                end={countryInfo.All.recovered}
+                duration={3}
+                separator=","
+              />
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className={
               countryCasesInfoStyles["country-cases-info-card-population"]
             }
           >
             <h1>Population:</h1>
-            <p>{countryInfo.All.population}</p>
-          </div>
+            <p>
+              <CountUp
+                start={0}
+                end={countryInfo.All.population}
+                duration={3}
+                separator=","
+              />
+            </p>
+          </motion.div>
         </div>
       </div>
     </>
