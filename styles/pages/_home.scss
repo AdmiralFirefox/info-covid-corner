@@ -71,7 +71,7 @@
   justify-content: center;
   margin: 2.5em 0em;
 
-  .global-info-content-content {
+  .global-info-content {
     display: grid;
     grid-gap: 2em;
     grid-template-columns: repeat(1, 1fr);
@@ -146,12 +146,12 @@
   }
 
   .global-info-content-wrapper {
-    margin: 3em 7em;
+    margin: 3em;
 
-    .global-info-content-content {
+    .global-info-content {
       grid-gap: 3em;
       grid-template-columns: repeat(3, 1fr);
-      width: 100%;
+      width: auto;
     }
   }
 }

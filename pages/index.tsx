@@ -103,7 +103,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
       </div>
 
       <div className={homeStyles["global-info-content-wrapper"]}>
-        <div className={homeStyles["global-info-content-content"]}>
+        <div className={homeStyles["global-info-content"]}>
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
