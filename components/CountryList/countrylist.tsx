@@ -56,10 +56,20 @@ const CountryList: FC<CountryCovidListProps> = ({
     <>
       <div className={countryListStyles["country-lists-title"]}>
         <h1>Countries</h1>
-        <FormControl variant="filled" className="select-wrapper">
+        <FormControl
+          variant="filled"
+          color="info"
+          sx={{
+            background: "#37474f",
+            borderTopLeftRadius: "5px",
+            borderTopRightRadius: "5px",
+          }}
+        >
           <InputLabel
             id="demo-simple-select-label"
-            className="select-input-label"
+            sx={{
+              color: "#fff",
+            }}
           >
             Sort by:
           </InputLabel>
@@ -68,9 +78,30 @@ const CountryList: FC<CountryCovidListProps> = ({
             id="demo-simple-select"
             label="Countries"
             variant="filled"
-            className="select-items"
             onChange={handleSelectChange}
             value={sortCovidInfo}
+            sx={{
+              color: "#fff",
+            }}
+            MenuProps={{
+              sx: {
+                ".MuiPaper-root": {
+                  background: "none",
+                  boxShadow: "5px 10px 20px 1px rgba(0,0,0,0.5)",
+                },
+                ".MuiMenu-list": {
+                  backgroundColor: "#37474f",
+                  borderRadius: "5px",
+                },
+                ".MuiMenuItem-root": {
+                  color: "#fff",
+                  transition: "background 0.2s ease-in-out",
+                  "&:hover": {
+                    backgroundColor: "hsl(200, 18%, 35%)",
+                  },
+                },
+              },
+            }}
           >
             <MenuItem value="cases-asc">Cases - Asc</MenuItem>
             <MenuItem value="cases-desc">Cases - Desc</MenuItem>
