@@ -242,9 +242,6 @@
 }
 
 .country-cases-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
 }
 .country-cases-title h1 {
@@ -461,9 +458,6 @@
 }
 
 .vaccine-cases-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
 }
 .vaccine-cases-title h1 {
