@@ -66,10 +66,9 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
   };
 
   //Covid Global Cases Date Updated
-  const globalInfoUpdate = format(
-    new Date(covidData.Global.Date),
-    "MM-dd-yyyy h:mm:ss a"
-  );
+  const globalInfoUpdate =
+    covidData.Global.Date !== undefined &&
+    format(new Date(covidData.Global.Date), "MM/dd/yyyy, h:mm:ss a");
 
   useEffect(() => {
     document.getElementsByTagName("body")[0].className =
@@ -87,7 +86,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
         <div className={homeStyles["web-logo"]}>
           <Image
             src="/assets/virus-web-logo.svg"
-            alt=""
+            alt="Virus Web Logo"
             layout="fill"
             objectFit="contain"
           />

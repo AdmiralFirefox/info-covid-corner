@@ -1,0 +1,85 @@
+@use "../themeprovider/themeprovider" as theme-provider;
+
+.covid-info-background {
+  background: theme-provider.$main-body-background-color;
+}
+
+.covid-info-title {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+
+  //Covid Info Title
+  h1 {
+    color: theme-provider.$white-color;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    text-align: center;
+    margin: 0em 1em;
+  }
+
+  //Covid Info Logo
+  .covid-info-logo {
+    position: relative;
+    width: clamp(3.2em, 7vw, 4.5em);
+    height: 5em;
+  }
+
+  @supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+    h1 {
+      font-size: min(max(1.6rem, 4vw), 2.5rem);
+    }
+
+    .covid-info-logo {
+      min-width: 3.2em;
+      width: 7vw;
+      max-width: 4.5em;
+    }
+  }
+}
+
+.covid-info-input-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5em;
+}
+
+.covid-info-country-result {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  grid-gap: 2em;
+  margin: 2em 4em;
+
+  .covid-info-country-result-card {
+    background: theme-provider.$card-color;
+    color: theme-provider.$white-color;
+    padding: 1em;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition: background 0.5s ease-in-out;
+
+    &:hover {
+      background: theme-provider.$card-color-hover;
+    }
+  }
+}
+
+@media (min-width: theme-provider.$media-query-small-value) {
+  .covid-info-title {
+    flex-direction: row;
+    margin-top: 1.5em;
+
+    h1 {
+      margin: 0em;
+    }
+
+    .covid-info-logo {
+      margin-left: 0.8em;
+    }
+  }
+
+  .covid-info-input-form {
+    margin-top: 2em;
+  }
+}

@@ -1,0 +1,179 @@
+@use "../themeprovider/themeprovider" as theme-provider;
+
+.country-cases-info-background {
+  background: theme-provider.$main-body-background-color;
+}
+
+.back-button {
+  color: theme-provider.$white-color;
+  font-size: 2.3rem;
+  transition: color 0.5s ease-in-out;
+  margin: 0.4em 0em 0em 0.4em;
+
+  &:hover {
+    color: theme-provider.$white-color-hover;
+  }
+}
+
+.country-cases-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    color: theme-provider.$white-color;
+    font-size: clamp(1.5rem, 2.3vw, 2.2rem);
+  }
+
+  p {
+    color: theme-provider.$white-color;
+    font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+    font-weight: 500;
+  }
+
+  @supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+    h1 {
+      font-size: min(max(1.5rem, 2.3vw), 2.2rem);
+    }
+
+    p {
+      font-size: min(max(0.9rem, 1.3vw), 1.1rem);
+    }
+  }
+}
+
+.country-cases-info-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2em 2em 3em 2em;
+
+  .country-cases-info-content {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 2em;
+
+    //Cases
+    .country-cases-info-card-cases {
+      background: theme-provider.$red-background;
+      padding: 1em;
+      text-align: center;
+      border-radius: 10px;
+
+      h1 {
+        color: theme-provider.$white-color;
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+      }
+
+      p {
+        color: theme-provider.$white-color;
+        font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      }
+
+      @supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+        h1 {
+          font-size: min(max(1.2rem, 2vw), 1.5rem);
+        }
+
+        p {
+          font-size: min(max(0.9rem, 1.5vw), 1.1rem);
+        }
+      }
+    }
+
+    //Deaths
+    .country-cases-info-card-deaths {
+      background: theme-provider.$orange-background;
+      padding: 1em;
+      text-align: center;
+      border-radius: 10px;
+
+      h1 {
+        color: theme-provider.$white-color;
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+      }
+
+      p {
+        color: theme-provider.$white-color;
+        font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      }
+
+      @supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+        h1 {
+          font-size: min(max(1.2rem, 2vw), 1.5rem);
+        }
+
+        p {
+          font-size: min(max(0.9rem, 1.5vw), 1.1rem);
+        }
+      }
+    }
+
+    //Recovered
+    .country-cases-info-card-recovered {
+      background: theme-provider.$green-background;
+      padding: 1em;
+      text-align: center;
+      border-radius: 10px;
+
+      h1 {
+        color: theme-provider.$white-color;
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+      }
+
+      p {
+        color: theme-provider.$white-color;
+        font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      }
+
+      @supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+        h1 {
+          font-size: min(max(1.2rem, 2vw), 1.5rem);
+        }
+
+        p {
+          font-size: min(max(0.9rem, 1.5vw), 1.1rem);
+        }
+      }
+    }
+
+    //Population
+    .country-cases-info-card-population {
+      background: theme-provider.$lighted-dark-blue-background;
+      padding: 1em;
+      text-align: center;
+      border-radius: 10px;
+
+      h1 {
+        color: theme-provider.$white-color;
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+      }
+
+      p {
+        color: theme-provider.$white-color;
+        font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      }
+
+      @supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+        h1 {
+          font-size: min(max(1.2rem, 2vw), 1.5rem);
+        }
+
+        p {
+          font-size: min(max(0.9rem, 1.5vw), 1.1rem);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: theme-provider.$media-query-small-value) {
+  .country-cases-info-wrapper {
+    margin: 2.5em 2em 3em 2em;
+
+    .country-cases-info-content {
+      grid-gap: 3em;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
