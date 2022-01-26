@@ -44,9 +44,10 @@ const CountryVaccineInfo: FC<CountryCasesProps> = ({
     isError,
     isFetching,
   }: UseQueryResult<CountryProps, Error> = useQuery<CountryProps, Error>(
-    ["posts", country],
+    ["country", country],
     () => fetchData(country),
     {
+      refetchOnWindowFocus: false,
       cacheTime: 5000,
       enabled: Boolean(country),
     }
