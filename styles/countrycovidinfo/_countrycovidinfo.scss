@@ -4,11 +4,56 @@
   background: theme-provider.$main-body-background-color;
 }
 
+//While Loading Data
+.cases-loading-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 3em;
+
+  .cases-loading-content {
+    background: theme-provider.$card-color;
+    width: min(80%, 25em);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2em;
+
+    h1 {
+      color: theme-provider.$white-color;
+      margin-top: 0.8em;
+      font-size: min(max(1.5rem, 2.5vw), 2rem);
+    }
+  }
+}
+
+//Error Loading Data
+.cases-error-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 3em;
+
+  .cases-error-content {
+    text-align: center;
+    background: theme-provider.$red-background;
+    padding: 2em;
+    width: min(80%, 25em);
+
+    h1 {
+      color: theme-provider.$white-color;
+      font-size: min(max(1.5rem, 2.5vw), 2rem);
+    }
+  }
+}
+
 .back-button {
   color: theme-provider.$white-color;
   font-size: 2.3rem;
   transition: color 0.5s ease-in-out;
   margin: 0.4em 0em 0em 0.4em;
+  cursor: pointer;
 
   &:hover {
     color: theme-provider.$white-color-hover;

@@ -6,6 +6,7 @@ import { IconContext } from "react-icons";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
 import Axios from "axios";
+import CircularProgress from "@mui/material/CircularProgress";
 import countryVaccinesInfoStyles from "../../styles/Home.module.scss";
 
 interface CountryProps {
@@ -45,7 +46,6 @@ const CountryVaccineInfo: FC<CountryCasesProps> = ({
     ["posts", country],
     () => fetchData(country),
     {
-      staleTime: 30000,
       enabled: Boolean(country),
     }
   );
@@ -56,29 +56,61 @@ const CountryVaccineInfo: FC<CountryCasesProps> = ({
 
   if (isLoading) {
     return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
+      <>
+        <div style={{ width: 0 }} onClick={countryUnselected}>
+          <IconContext.Provider
+            value={{
+              className: countryVaccinesInfoStyles["vaccine-back-button"],
+            }}
+          >
+            <IoArrowBackCircle />
+          </IconContext.Provider>
+        </div>
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className={countryVaccinesInfoStyles["vaccine-loading-wrapper"]}
+        >
+          <div className={countryVaccinesInfoStyles["vaccine-loading-content"]}>
+            <CircularProgress color="secondary" size="3rem" />
+            <h1>Loading Country...</h1>
+          </div>
+        </motion.div>
+      </>
     );
   }
 
   if (isError) {
     return (
-      <div>
-        <h1>Someting went wrong... please try again later</h1>
-      </div>
+      <>
+        <div style={{ width: 0 }} onClick={countryUnselected}>
+          <IconContext.Provider
+            value={{ className: countryVaccinesInfoStyles["vaccine-back-button"] }}
+          >
+            <IoArrowBackCircle />
+          </IconContext.Provider>
+        </div>
+        <div className={countryVaccinesInfoStyles["vaccine-error-wrapper"]}>
+          <div className={countryVaccinesInfoStyles["vaccine-error-content"]}>
+            <h1>Someting went wrong! Please try again later.</h1>
+          </div>
+        </div>
+      </>
     );
   }
 
   return (
     <>
-      <IconContext.Provider
-        value={{ className: countryVaccinesInfoStyles["vaccine-back-button"] }}
-      >
-        <div onClick={countryUnselected}>
+      <div style={{ width: 0 }} onClick={countryUnselected}>
+        <IconContext.Provider
+          value={{
+            className: countryVaccinesInfoStyles["vaccine-back-button"],
+          }}
+        >
           <IoArrowBackCircle />
-        </div>
-      </IconContext.Provider>
+        </IconContext.Provider>
+      </div>
 
       <div className={countryVaccinesInfoStyles["vaccine-cases-title"]}>
         <h1>{countryInfo?.data.All.country}</h1>

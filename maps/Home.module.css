@@ -206,6 +206,7 @@
   font-size: 1.3rem;
   font-weight: 500;
   transition: background 0.5s ease-in-out;
+  cursor: pointer;
 }
 .covid-info-country-result .covid-info-country-result-card:hover {
   background: #495f69;
@@ -279,6 +280,7 @@
   font-size: 1.3rem;
   font-weight: 500;
   transition: background 0.5s ease-in-out;
+  cursor: pointer;
 }
 .vaccine-info-country-result .vaccine-info-country-result-card:hover {
   background: #495f69;
@@ -411,11 +413,50 @@
   background: #232528;
 }
 
+.cases-loading-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+.cases-loading-wrapper .cases-loading-content {
+  background: #37474f;
+  width: min(80%, 25em);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2em;
+}
+.cases-loading-wrapper .cases-loading-content h1 {
+  color: #fff;
+  margin-top: 0.8em;
+  font-size: min(max(1.5rem, 2.5vw), 2rem);
+}
+
+.cases-error-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+.cases-error-wrapper .cases-error-content {
+  text-align: center;
+  background: #ba292e;
+  padding: 2em;
+  width: min(80%, 25em);
+}
+.cases-error-wrapper .cases-error-content h1 {
+  color: #fff;
+  font-size: min(max(1.5rem, 2.5vw), 2rem);
+}
+
 .back-button {
   color: #fff;
   font-size: 2.3rem;
   transition: color 0.5s ease-in-out;
   margin: 0.4em 0em 0em 0.4em;
+  cursor: pointer;
 }
 .back-button:hover {
   color: #d9d9d9;
@@ -554,11 +595,50 @@
   background: #232528;
 }
 
+.vaccine-loading-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+.vaccine-loading-wrapper .vaccine-loading-content {
+  background: #37474f;
+  width: min(80%, 25em);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2em;
+}
+.vaccine-loading-wrapper .vaccine-loading-content h1 {
+  color: #fff;
+  margin-top: 0.8em;
+  font-size: min(max(1.5rem, 2.5vw), 2rem);
+}
+
+.vaccine-error-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+.vaccine-error-wrapper .vaccine-error-content {
+  text-align: center;
+  background: #ba292e;
+  padding: 2em;
+  width: min(80%, 25em);
+}
+.vaccine-error-wrapper .vaccine-error-content h1 {
+  color: #fff;
+  font-size: min(max(1.5rem, 2.5vw), 2rem);
+}
+
 .vaccine-back-button {
   color: #fff;
   font-size: 2.3rem;
   transition: color 0.5s ease-in-out;
   margin: 0.4em 0em 0em 0.4em;
+  cursor: pointer;
 }
 .vaccine-back-button:hover {
   color: #d9d9d9;
