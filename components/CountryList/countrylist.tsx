@@ -4,7 +4,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { format } from "date-fns";
+import dayjs from "dayjs";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import { CountryListProps } from "../../types/CovidInfoTypes";
@@ -139,7 +139,7 @@ const CountryList: FC<CountryCovidListProps> = ({
               <p className={countryListStyles["country-list-card-content"]}>
                 {country.TotalRecovered.toLocaleString()}
               </p>
-              {/* <p className={countryListStyles["country-list-card-title"]}>
+              <p className={countryListStyles["country-list-card-title"]}>
                 Updated:
               </p>
               {country.Date === undefined ? (
@@ -148,9 +148,9 @@ const CountryList: FC<CountryCovidListProps> = ({
                 </p>
               ) : (
                 <p className={countryListStyles["country-list-card-content"]}>
-                  {format(new Date(country.Date), "MM/dd/yyyy, h:mm:ss a")}
+                  {dayjs(country.Date).format("MM/DD/YYYY, h:mm:ss a")}
                 </p>
-              )} */}
+              )}
 
               <MoreInfoButton
                 onClick={() => handleToggleCountryModal(country.ID)}

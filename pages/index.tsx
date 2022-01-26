@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { GetStaticProps } from "next";
 import type { NextPage } from "next";
-import { format } from "date-fns";
+import dayjs from "dayjs";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
 import CountryList from "../components/CountryList/countrylist";
@@ -65,10 +65,10 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
     setSortCovidInfo(e.target.value);
   };
 
-  //Covid Global Cases Date Updated
-  // const globalInfoUpdate =
-  //   covidData.Global.Date !== undefined &&
-  //   format(new Date(covidData.Global.Date), "MM/dd/yyyy, h:mm:ss a");
+  // Covid Global Cases Date Updated
+  const globalInfoUpdate =
+    covidData.Global.Date !== undefined &&
+    dayjs(covidData.Global.Date).format("MM/DD/YYYY, h:mm:ss a");
 
   useEffect(() => {
     document.getElementsByTagName("body")[0].className =
@@ -95,11 +95,11 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
 
       <div className={homeStyles["global-info-title"]}>
         <h1>Global Info</h1>
-        {/* {covidData.Global.Date === undefined ? (
+        {covidData.Global.Date === undefined ? (
           <p>Date Unvailable...</p>
         ) : (
           <p>Updated: {globalInfoUpdate}</p>
-        )} */}
+        )}
       </div>
 
       <div className={homeStyles["global-info-content-wrapper"]}>
