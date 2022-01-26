@@ -46,6 +46,7 @@ const CountryVaccineInfo: FC<CountryCasesProps> = ({
     ["posts", country],
     () => fetchData(country),
     {
+      cacheTime: 5000,
       enabled: Boolean(country),
     }
   );
@@ -66,6 +67,7 @@ const CountryVaccineInfo: FC<CountryCasesProps> = ({
             <IoArrowBackCircle />
           </IconContext.Provider>
         </div>
+
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
@@ -86,7 +88,9 @@ const CountryVaccineInfo: FC<CountryCasesProps> = ({
       <>
         <div style={{ width: 0 }} onClick={countryUnselected}>
           <IconContext.Provider
-            value={{ className: countryVaccinesInfoStyles["vaccine-back-button"] }}
+            value={{
+              className: countryVaccinesInfoStyles["vaccine-back-button"],
+            }}
           >
             <IoArrowBackCircle />
           </IconContext.Provider>

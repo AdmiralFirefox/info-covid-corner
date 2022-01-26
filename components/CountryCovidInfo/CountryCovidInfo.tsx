@@ -46,6 +46,7 @@ const CountryCovidInfo: FC<CountryCasesProps> = ({
     ["posts", country],
     () => fetchData(country),
     {
+      cacheTime: 5000,
       enabled: Boolean(country),
     }
   );
@@ -68,7 +69,6 @@ const CountryCovidInfo: FC<CountryCasesProps> = ({
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          exit={{ scale: 0 }}
           transition={{ duration: 0.5 }}
           className={countryCasesInfoStyles["cases-loading-wrapper"]}
         >
