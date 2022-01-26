@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { NextPage } from "next";
-import moment from "moment";
+import { format } from "date-fns";
 import Link from "next/link";
 import { IoArrowBackCircle } from "react-icons/io5";
 import { IconContext } from "react-icons";
@@ -40,7 +40,7 @@ const Country: NextPage<CountryProps> = ({ countryInfo }) => {
 
   const countryInfoUpdate =
     countryInfo.All.updated !== undefined &&
-    moment(countryInfo.All.updated).format("MM/DD/YYYY, h:mm:ss a");
+    format(new Date(countryInfo.All.updated), "MM/DD/YYYY, h:mm:ss a");
 
   return (
     <>
@@ -177,6 +177,6 @@ export const getStaticProps = async (context: ContextType) => {
     props: {
       countryInfo,
     },
-    revalidate: 60, 
+    revalidate: 60,
   };
 };
