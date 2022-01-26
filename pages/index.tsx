@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { GetStaticProps } from "next";
 import type { NextPage } from "next";
-import { format } from "date-fns";
+import dayjs from "dayjs";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
 import CountryList from "../components/CountryList/countrylist";
@@ -68,7 +68,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
   //Covid Global Cases Date Updated
   const globalInfoUpdate =
     covidData.Global.Date !== undefined &&
-    format(new Date(covidData.Global.Date), "MM/dd/yyyy, h:mm:ss a");
+    dayjs(covidData.Global.Date).format("MM/DD/YYYY, h:mm:ss a");
 
   useEffect(() => {
     document.getElementsByTagName("body")[0].className =

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { NextPage } from "next";
-import { format } from "date-fns";
+import dayjs from "dayjs";
 import Link from "next/link";
 import { IoArrowBackCircle } from "react-icons/io5";
 import { IconContext } from "react-icons";
@@ -40,7 +40,7 @@ const Country: NextPage<CountryProps> = ({ countryInfo }) => {
 
   const countryInfoUpdate =
     countryInfo.All.updated !== undefined &&
-    format(new Date(countryInfo.All.updated), "MM/dd/yyyy, h:mm:ss a");
+    dayjs(countryInfo.All.updated).format("MM/DD/YYYY, h:mm:ss a");
 
   return (
     <>
