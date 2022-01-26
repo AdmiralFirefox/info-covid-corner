@@ -139,7 +139,7 @@ const CountryList: FC<CountryCovidListProps> = ({
               <p className={countryListStyles["country-list-card-content"]}>
                 {country.TotalRecovered.toLocaleString()}
               </p>
-              <p className={countryListStyles["country-list-card-title"]}>
+              {/* <p className={countryListStyles["country-list-card-title"]}>
                 Updated:
               </p>
               {country.Date === undefined ? (
@@ -150,7 +150,7 @@ const CountryList: FC<CountryCovidListProps> = ({
                 <p className={countryListStyles["country-list-card-content"]}>
                   {format(new Date(country.Date), "MM/dd/yyyy, h:mm:ss a")}
                 </p>
-              )}
+              )} */}
 
               <MoreInfoButton
                 onClick={() => handleToggleCountryModal(country.ID)}

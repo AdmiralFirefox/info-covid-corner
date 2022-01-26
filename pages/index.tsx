@@ -66,9 +66,9 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
   };
 
   //Covid Global Cases Date Updated
-  const globalInfoUpdate =
-    covidData.Global.Date !== undefined &&
-    format(new Date(covidData.Global.Date), "MM/dd/yyyy, h:mm:ss a");
+  // const globalInfoUpdate =
+  //   covidData.Global.Date !== undefined &&
+  //   format(new Date(covidData.Global.Date), "MM/dd/yyyy, h:mm:ss a");
 
   useEffect(() => {
     document.getElementsByTagName("body")[0].className =
@@ -95,11 +95,11 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
 
       <div className={homeStyles["global-info-title"]}>
         <h1>Global Info</h1>
-        {covidData.Global.Date === undefined ? (
+        {/* {covidData.Global.Date === undefined ? (
           <p>Date Unvailable...</p>
         ) : (
           <p>Updated: {globalInfoUpdate}</p>
-        )}
+        )} */}
       </div>
 
       <div className={homeStyles["global-info-content-wrapper"]}>

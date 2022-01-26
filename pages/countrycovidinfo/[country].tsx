@@ -38,9 +38,9 @@ const Country: NextPage<CountryProps> = ({ countryInfo }) => {
     };
   }, []);
 
-  const countryInfoUpdate =
-    countryInfo.All.updated !== undefined &&
-    format(new Date(countryInfo.All.updated), "MM/dd/yyyy, h:mm:ss a");
+  // const countryInfoUpdate =
+  //   countryInfo.All.updated !== undefined &&
+  //   format(new Date(countryInfo.All.updated), "MM/dd/yyyy, h:mm:ss a");
 
   return (
     <>
@@ -57,11 +57,11 @@ const Country: NextPage<CountryProps> = ({ countryInfo }) => {
       <div className={countryCasesInfoStyles["country-cases-title"]}>
         <h1>{countryInfo.All.country}</h1>
         <p>Continent: {countryInfo.All.continent}</p>
-        {countryInfo.All.updated === undefined ? (
+        {/* {countryInfo.All.updated === undefined ? (
           <p>Date Unvailable...</p>
         ) : (
           <p>Updated: {countryInfoUpdate}</p>
-        )}
+        )} */}
       </div>
 
       <div className={countryCasesInfoStyles["country-cases-info-wrapper"]}>
