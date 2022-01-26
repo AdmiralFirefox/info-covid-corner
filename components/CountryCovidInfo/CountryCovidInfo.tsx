@@ -42,6 +42,7 @@ const CountryCovidInfo: FC<CountryCasesProps> = ({
     data: countryInfo,
     isLoading,
     isError,
+    isFetching,
   }: UseQueryResult<CountryProps, Error> = useQuery<CountryProps, Error>(
     ["posts", country],
     () => fetchData(country),
@@ -56,6 +57,32 @@ const CountryCovidInfo: FC<CountryCasesProps> = ({
     dayjs(countryInfo?.data.All.updated).format("MM/DD/YYYY, h:mm:ss a");
 
   if (isLoading) {
+    return (
+      <>
+        <div style={{ width: 0 }} onClick={countryUnselected}>
+          <IconContext.Provider
+            value={{ className: countryCasesInfoStyles["back-button"] }}
+          >
+            <IoArrowBackCircle />
+          </IconContext.Provider>
+        </div>
+
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className={countryCasesInfoStyles["cases-loading-wrapper"]}
+        >
+          <div className={countryCasesInfoStyles["cases-loading-content"]}>
+            <CircularProgress color="secondary" size="3rem" />
+            <h1>Loading Country...</h1>
+          </div>
+        </motion.div>
+      </>
+    );
+  }
+
+  if (isFetching) {
     return (
       <>
         <div style={{ width: 0 }} onClick={countryUnselected}>
