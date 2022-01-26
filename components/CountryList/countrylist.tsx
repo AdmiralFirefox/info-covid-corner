@@ -148,7 +148,7 @@ const CountryList: FC<CountryCovidListProps> = ({
                 </p>
               ) : (
                 <p className={countryListStyles["country-list-card-content"]}>
-                  {format(new Date(country.Date), "MM/DD/YYYY, h:mm:ss a")}
+                  {format(new Date(country.Date), "MM/dd/yyyy, h:mm:ss a")}
                 </p>
               )}
 

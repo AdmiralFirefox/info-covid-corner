@@ -40,7 +40,7 @@ const Country: NextPage<CountryProps> = ({ countryInfo }) => {
 
   const countryInfoUpdate =
     countryInfo.All.updated !== undefined &&
-    format(new Date(countryInfo.All.updated), "MM/DD/YYYY, h:mm:ss a");
+    format(new Date(countryInfo.All.updated), "MM/dd/yyyy, h:mm:ss a");
 
   return (
     <>

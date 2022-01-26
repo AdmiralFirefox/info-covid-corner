@@ -68,7 +68,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
   //Covid Global Cases Date Updated
   const globalInfoUpdate =
     covidData.Global.Date !== undefined &&
-    format(new Date(covidData.Global.Date), "MM/DD/YYYY, h:mm:ss a");
+    format(new Date(covidData.Global.Date), "MM/dd/yyyy, h:mm:ss a");
 
   useEffect(() => {
     document.getElementsByTagName("body")[0].className =
