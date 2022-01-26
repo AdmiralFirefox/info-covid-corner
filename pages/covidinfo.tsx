@@ -1,15 +1,30 @@
 import { useState, useEffect, ChangeEvent } from "react";
-import Link from "next/link";
 import { NextPage, GetStaticProps } from "next";
 import { CountriesTypes } from "../types/CountriesTypes";
 import Image from "next/image";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Fuse from "fuse.js";
+import CountryCovidInfo from "../components/CountryCovidInfo/CountryCovidInfo";
 import covidInfoStyles from "../styles/Home.module.scss";
 
 const CovidInfo: NextPage<CountriesTypes> = ({ countries }) => {
   const [searchCountry, setSearchCountry] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState<boolean | string>(
+    false
+  );
+
+  const countrySelected = (country: string) => {
+    if (selectedCountry === country) {
+      return setSelectedCountry(true);
+    }
+
+    setSelectedCountry(country);
+  };
+
+  const countryUnselected = () => {
+    setSelectedCountry(false);
+  };
 
   const arrayCountries = Object.keys(countries);
 
@@ -37,6 +52,25 @@ const CovidInfo: NextPage<CountriesTypes> = ({ countries }) => {
   ) => {
     setSearchCountry(e.target.value);
   };
+
+  if (selectedCountry) {
+    return (
+      <>
+        {countryResults.map((country, index) => {
+          return (
+            <div key={index}>
+              {selectedCountry === country && (
+                <CountryCovidInfo
+                  country={country}
+                  countryUnselected={countryUnselected}
+                />
+              )}
+            </div>
+          );
+        })}
+      </>
+    );
+  }
 
   return (
     <>
@@ -78,18 +112,12 @@ const CovidInfo: NextPage<CountriesTypes> = ({ countries }) => {
           .filter((country) => country !== "Global")
           .map((country, index) => {
             return (
-              <div key={index}>
-                <Link href={`countrycovidinfo/${country}`}>
-                  <a>
-                    <div
-                      className={
-                        covidInfoStyles["covid-info-country-result-card"]
-                      }
-                    >
-                      {country}
-                    </div>
-                  </a>
-                </Link>
+              <div
+                key={index}
+                className={covidInfoStyles["covid-info-country-result-card"]}
+                onClick={() => countrySelected(country)}
+              >
+                {country}
               </div>
             );
           })}

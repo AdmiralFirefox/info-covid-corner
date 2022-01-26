@@ -1,15 +1,30 @@
 import { useState, useEffect, ChangeEvent } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { GetStaticProps, NextPage } from "next";
 import { CountriesTypes } from "../types/CountriesTypes";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Fuse from "fuse.js";
+import CountryVaccineInfo from "../components/CountryVaccineInfo/CountryVaccineInfo";
 import vaccineInfoStyles from "../styles/Home.module.scss";
 
 const VaccineInfo: NextPage<CountriesTypes> = ({ countries }) => {
   const [searchCountry, setSearchCountry] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState<boolean | string>(
+    false
+  );
+
+  const countrySelected = (country: string) => {
+    if (selectedCountry === country) {
+      return setSelectedCountry(true);
+    }
+
+    setSelectedCountry(country);
+  };
+
+  const countryUnselected = () => {
+    setSelectedCountry(false);
+  };
 
   const arrayCountries = Object.keys(countries);
 
@@ -37,6 +52,25 @@ const VaccineInfo: NextPage<CountriesTypes> = ({ countries }) => {
   ) => {
     setSearchCountry(e.target.value);
   };
+
+  if (selectedCountry) {
+    return (
+      <>
+        {countryResults.map((country, index) => {
+          return (
+            <div key={index}>
+              {selectedCountry === country && (
+                <CountryVaccineInfo
+                  country={country}
+                  countryUnselected={countryUnselected}
+                />
+              )}
+            </div>
+          );
+        })}
+      </>
+    );
+  }
 
   return (
     <>
@@ -78,18 +112,14 @@ const VaccineInfo: NextPage<CountriesTypes> = ({ countries }) => {
           .filter((country) => country !== "Global")
           .map((country, index) => {
             return (
-              <div key={index}>
-                <Link href={`countryvaccineinfo/${country}`}>
-                  <a>
-                    <div
-                      className={
-                        vaccineInfoStyles["vaccine-info-country-result-card"]
-                      }
-                    >
-                      {country}
-                    </div>
-                  </a>
-                </Link>
+              <div
+                key={index}
+                className={
+                  vaccineInfoStyles["vaccine-info-country-result-card"]
+                }
+                onClick={() => countrySelected(country)}
+              >
+                {country}
               </div>
             );
           })}
