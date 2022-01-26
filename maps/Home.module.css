@@ -227,6 +227,186 @@
     margin-top: 2em;
   }
 }
+.vaccine-info-background {
+  background: #232528;
+}
+
+.vaccine-info-title {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+.vaccine-info-title h1 {
+  color: #fff;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  text-align: center;
+  margin: 0em 1em;
+}
+.vaccine-info-title .vaccine-info-logo {
+  position: relative;
+  width: clamp(3.2em, 7vw, 4.5em);
+  height: 5em;
+}
+@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+  .vaccine-info-title h1 {
+    font-size: min(max(1.6rem, 4vw), 2.5rem);
+  }
+  .vaccine-info-title .vaccine-info-logo {
+    min-width: 3.2em;
+    width: 7vw;
+    max-width: 4.5em;
+  }
+}
+
+.vaccine-info-input-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5em;
+}
+
+.vaccine-info-country-result {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  grid-gap: 2em;
+  margin: 2em 4em;
+}
+.vaccine-info-country-result .vaccine-info-country-result-card {
+  background: #37474f;
+  color: #fff;
+  padding: 1em;
+  font-size: 1.3rem;
+  font-weight: 500;
+  transition: background 0.5s ease-in-out;
+}
+.vaccine-info-country-result .vaccine-info-country-result-card:hover {
+  background: #495f69;
+}
+
+@media (min-width: 40em) {
+  .vaccine-info-title {
+    flex-direction: row;
+    margin-top: 1.5em;
+  }
+  .vaccine-info-title h1 {
+    margin: 0em;
+  }
+  .vaccine-info-title .vaccine-info-logo {
+    margin-left: 0.8em;
+  }
+
+  .vaccine-info-input-form {
+    margin-top: 2em;
+  }
+}
+.country-lists-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5em;
+  margin-bottom: 3em;
+}
+.country-lists-title h1 {
+  color: #fff;
+  margin-bottom: 0.2em;
+}
+
+.country-list-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.country-list-card-wrapper .country-list-card {
+  background: #37474f;
+  padding: 1.3em;
+  text-align: center;
+  margin-bottom: 2.5em;
+  width: min(80%, 25em);
+  border-left: 10px solid #009fff;
+}
+.country-list-card-wrapper .country-list-card h1 {
+  color: #fff;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  line-height: 1.2em;
+  margin-bottom: 0.7em;
+}
+.country-list-card-wrapper .country-list-card .country-list-card-title {
+  color: #fff;
+  margin-top: 0.5em;
+  font-weight: 500;
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+}
+.country-list-card-wrapper .country-list-card .country-list-card-content {
+  color: #fff;
+  margin-bottom: 0.5em;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+  .country-list-card-wrapper .country-list-card h1 {
+    font-size: min(max(1.5rem, 2.2vw), 2rem);
+  }
+  .country-list-card-wrapper .country-list-card .country-list-card-title {
+    font-size: min(max(1.2rem, 1.5vw), 1.4rem);
+  }
+  .country-list-card-wrapper .country-list-card .country-list-card-content {
+    font-size: min(max(1rem, 1.5vw), 1.2rem);
+  }
+}
+
+.country-modal-backdrop {
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+.country-modal-wrapper {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: min(80%, 20em);
+}
+.country-modal-wrapper .country-modal-content {
+  background: #37474f;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.5);
+}
+.country-modal-wrapper .country-modal-content h1 {
+  color: #fff;
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  line-height: 1.3em;
+}
+.country-modal-wrapper .country-modal-content .country-modal-label {
+  color: #fff;
+  margin-top: 1em;
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+  font-weight: 500;
+}
+.country-modal-wrapper .country-modal-content .country-modal-text-amount {
+  color: #fff;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+  .country-modal-wrapper .country-modal-content h1 {
+    font-size: min(max(1.4rem, 2.2vw), 1.8rem);
+  }
+  .country-modal-wrapper .country-modal-content .country-modal-label {
+    font-size: min(max(1.1rem, 1.4vw), 1.3rem);
+  }
+  .country-modal-wrapper .country-modal-content .country-modal-text-amount {
+    font-size: min(max(0.9rem, 1.5vw), 1.1rem);
+  }
+}
+
 .country-cases-info-background {
   background: #232528;
 }
@@ -370,79 +550,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-.vaccine-info-background {
-  background: #232528;
-}
-
-.vaccine-info-title {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1em;
-}
-.vaccine-info-title h1 {
-  color: #fff;
-  font-size: clamp(1.6rem, 4vw, 2.5rem);
-  text-align: center;
-  margin: 0em 1em;
-}
-.vaccine-info-title .vaccine-info-logo {
-  position: relative;
-  width: clamp(3.2em, 7vw, 4.5em);
-  height: 5em;
-}
-@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
-  .vaccine-info-title h1 {
-    font-size: min(max(1.6rem, 4vw), 2.5rem);
-  }
-  .vaccine-info-title .vaccine-info-logo {
-    min-width: 3.2em;
-    width: 7vw;
-    max-width: 4.5em;
-  }
-}
-
-.vaccine-info-input-form {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5em;
-}
-
-.vaccine-info-country-result {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
-  grid-gap: 2em;
-  margin: 2em 4em;
-}
-.vaccine-info-country-result .vaccine-info-country-result-card {
-  background: #37474f;
-  color: #fff;
-  padding: 1em;
-  font-size: 1.3rem;
-  font-weight: 500;
-  transition: background 0.5s ease-in-out;
-}
-.vaccine-info-country-result .vaccine-info-country-result-card:hover {
-  background: #495f69;
-}
-
-@media (min-width: 40em) {
-  .vaccine-info-title {
-    flex-direction: row;
-    margin-top: 1.5em;
-  }
-  .vaccine-info-title h1 {
-    margin: 0em;
-  }
-  .vaccine-info-title .vaccine-info-logo {
-    margin-left: 0.8em;
-  }
-
-  .vaccine-info-input-form {
-    margin-top: 2em;
-  }
-}
 .vaccine-cases-info-background {
   background: #232528;
 }
@@ -584,112 +691,6 @@
   .country-vaccine-info-wrapper .country-vaccine-info-content {
     grid-gap: 3em;
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-.country-lists-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 5em;
-  margin-bottom: 3em;
-}
-.country-lists-title h1 {
-  color: #fff;
-  margin-bottom: 0.2em;
-}
-
-.country-list-card-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.country-list-card-wrapper .country-list-card {
-  background: #37474f;
-  padding: 1.3em;
-  text-align: center;
-  margin-bottom: 2.5em;
-  width: min(80%, 25em);
-  border-left: 10px solid #009fff;
-}
-.country-list-card-wrapper .country-list-card h1 {
-  color: #fff;
-  font-size: clamp(1.5rem, 2.2vw, 2rem);
-  line-height: 1.2em;
-  margin-bottom: 0.7em;
-}
-.country-list-card-wrapper .country-list-card .country-list-card-title {
-  color: #fff;
-  margin-top: 0.5em;
-  font-weight: 500;
-  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
-}
-.country-list-card-wrapper .country-list-card .country-list-card-content {
-  color: #fff;
-  margin-bottom: 0.5em;
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-}
-@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
-  .country-list-card-wrapper .country-list-card h1 {
-    font-size: min(max(1.5rem, 2.2vw), 2rem);
-  }
-  .country-list-card-wrapper .country-list-card .country-list-card-title {
-    font-size: min(max(1.2rem, 1.5vw), 1.4rem);
-  }
-  .country-list-card-wrapper .country-list-card .country-list-card-content {
-    font-size: min(max(1rem, 1.5vw), 1.2rem);
-  }
-}
-
-.country-modal-backdrop {
-  background: rgba(0, 0, 0, 0.4);
-  position: fixed;
-  width: 100%;
-  z-index: 2;
-  top: 0;
-  left: 0;
-}
-
-.country-modal-wrapper {
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  width: min(80%, 20em);
-}
-.country-modal-wrapper .country-modal-content {
-  background: #37474f;
-  padding: 1.5em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border-radius: 10px;
-  box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.5);
-}
-.country-modal-wrapper .country-modal-content h1 {
-  color: #fff;
-  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
-  line-height: 1.3em;
-}
-.country-modal-wrapper .country-modal-content .country-modal-label {
-  color: #fff;
-  margin-top: 1em;
-  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
-  font-weight: 500;
-}
-.country-modal-wrapper .country-modal-content .country-modal-text-amount {
-  color: #fff;
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-}
-@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
-  .country-modal-wrapper .country-modal-content h1 {
-    font-size: min(max(1.4rem, 2.2vw), 1.8rem);
-  }
-  .country-modal-wrapper .country-modal-content .country-modal-label {
-    font-size: min(max(1.1rem, 1.4vw), 1.3rem);
-  }
-  .country-modal-wrapper .country-modal-content .country-modal-text-amount {
-    font-size: min(max(0.9rem, 1.5vw), 1.1rem);
   }
 }
 
