@@ -7,23 +7,10 @@ import CountUp from "react-countup";
 import { motion } from "framer-motion";
 import Axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
+import { CasesProps } from "../../types/CountryInfoTypes";
 import countryCasesInfoStyles from "../../styles/Home.module.scss";
 
 interface CountryProps {
-  data: {
-    All: {
-      country: string;
-      continent: string;
-      updated: string;
-      confirmed: number;
-      deaths: number;
-      recovered: number;
-      population: number;
-    };
-  };
-}
-
-interface CountryCasesProps {
   country: string;
   countryUnselected: () => void;
 }
@@ -34,7 +21,7 @@ const fetchData = async (country: string | undefined) => {
   );
 };
 
-const CountryCovidInfo: FC<CountryCasesProps> = ({
+const CountryCovidInfo: FC<CountryProps> = ({
   country,
   countryUnselected,
 }) => {
@@ -43,7 +30,7 @@ const CountryCovidInfo: FC<CountryCasesProps> = ({
     isLoading,
     isError,
     isFetching,
-  }: UseQueryResult<CountryProps, Error> = useQuery<CountryProps, Error>(
+  }: UseQueryResult<CasesProps, Error> = useQuery<CasesProps, Error>(
     ["country", country],
     () => fetchData(country),
     {
