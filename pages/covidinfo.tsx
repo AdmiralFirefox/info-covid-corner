@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Fuse from "fuse.js";
 import CountryCovidInfo from "../components/CountryCovidInfo/CountryCovidInfo";
-import covidInfoStyles from "../styles/Home.module.scss";
+import styles from "../styles/pages/CovidInfo.module.scss";
 
 const CovidInfo: NextPage<CountriesTypes> = ({ countries }) => {
   const [searchCountry, setSearchCountry] = useState("");
@@ -39,7 +39,7 @@ const CovidInfo: NextPage<CountriesTypes> = ({ countries }) => {
 
   useEffect(() => {
     document.getElementsByTagName("body")[0].className =
-      covidInfoStyles["covid-info-background"];
+      styles["covid-info-background"];
 
     return () => {
       document.getElementsByTagName("body")[0].className = "";
@@ -74,9 +74,9 @@ const CovidInfo: NextPage<CountriesTypes> = ({ countries }) => {
 
   return (
     <>
-      <div className={covidInfoStyles["covid-info-title"]}>
+      <div className={styles["covid-info-title"]}>
         <h1>Search Country Cases</h1>
-        <div className={covidInfoStyles["covid-info-logo"]}>
+        <div className={styles["covid-info-logo"]}>
           <Image
             src="/assets/virus.svg"
             alt="Virus Logo"
@@ -86,7 +86,7 @@ const CovidInfo: NextPage<CountriesTypes> = ({ countries }) => {
         </div>
       </div>
 
-      <div className={covidInfoStyles["covid-info-input-form"]}>
+      <div className={styles["covid-info-input-form"]}>
         <Paper
           sx={{
             p: "0.5em",
@@ -107,14 +107,14 @@ const CovidInfo: NextPage<CountriesTypes> = ({ countries }) => {
         </Paper>
       </div>
 
-      <div className={covidInfoStyles["covid-info-country-result"]}>
+      <div className={styles["covid-info-country-result"]}>
         {countryResults
           .filter((country) => country !== "Global")
           .map((country, index) => {
             return (
               <div
                 key={index}
-                className={covidInfoStyles["covid-info-country-result-card"]}
+                className={styles["covid-info-country-result-card"]}
                 onClick={() => countrySelected(country)}
               >
                 {country}

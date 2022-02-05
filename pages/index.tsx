@@ -9,7 +9,7 @@ import CountryList from "../components/CountryList/countrylist";
 import { CovidInfoProps } from "../types/CovidInfoTypes";
 import ReactPaginate from "react-paginate";
 import { SelectChangeEvent } from "@mui/material/Select";
-import homeStyles from "../styles/Home.module.scss";
+import styles from "../styles/pages/Home.module.scss";
 
 const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
   const countries = covidData.Countries;
@@ -72,7 +72,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
 
   useEffect(() => {
     document.getElementsByTagName("body")[0].className =
-      homeStyles["home-backround"];
+      styles["home-backround"];
 
     return () => {
       document.getElementsByTagName("body")[0].className = "";
@@ -81,9 +81,9 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
 
   return (
     <>
-      <div className={homeStyles["web-title"]}>
+      <div className={styles["web-title"]}>
         <h1>Covid Corner</h1>
-        <div className={homeStyles["web-logo"]}>
+        <div className={styles["web-logo"]}>
           <Image
             src="/assets/virus-web-logo.svg"
             alt="Virus Web Logo"
@@ -93,7 +93,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
         </div>
       </div>
 
-      <div className={homeStyles["global-info-title"]}>
+      <div className={styles["global-info-title"]}>
         <h1>Global Info</h1>
         {covidData.Global.Date === undefined ? (
           <p>Date Unvailable...</p>
@@ -102,13 +102,13 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
         )}
       </div>
 
-      <div className={homeStyles["global-info-content-wrapper"]}>
-        <div className={homeStyles["global-info-content"]}>
+      <div className={styles["global-info-content-wrapper"]}>
+        <div className={styles["global-info-content"]}>
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6 }}
-            className={homeStyles["global-info-content-card-cases"]}
+            className={styles["global-info-content-card-cases"]}
           >
             <h1>Confirmed Cases:</h1>
             <p>
@@ -125,7 +125,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className={homeStyles["global-info-content-card-deaths"]}
+            className={styles["global-info-content-card-deaths"]}
           >
             <h1>Deaths:</h1>
             <p>
@@ -142,7 +142,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className={homeStyles["global-info-content-card-recovered"]}
+            className={styles["global-info-content-card-recovered"]}
           >
             <h1>Recovered:</h1>
             <p>
@@ -159,7 +159,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className={homeStyles["global-info-content-card-cases"]}
+            className={styles["global-info-content-card-cases"]}
           >
             <h1>New Cases:</h1>
             <p>
@@ -176,7 +176,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className={homeStyles["global-info-content-card-deaths"]}
+            className={styles["global-info-content-card-deaths"]}
           >
             <h1>New Deaths:</h1>
             <p>
@@ -193,7 +193,7 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className={homeStyles["global-info-content-card-recovered"]}
+            className={styles["global-info-content-card-recovered"]}
           >
             <h1>New Recovered:</h1>
             <p>

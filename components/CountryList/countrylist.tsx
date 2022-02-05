@@ -9,7 +9,7 @@ import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import { CountryListProps } from "../../types/CovidInfoTypes";
 import { useLockedBody } from "../../hooks/useLockedBody";
-import countryListStyles from "../../styles/Home.module.scss";
+import styles from "../../styles/countrylist/CountryList.module.scss";
 
 interface CountryCovidListProps {
   covidInfo: CountryListProps[];
@@ -54,7 +54,7 @@ const CountryList: FC<CountryCovidListProps> = ({
 
   return (
     <>
-      <div className={countryListStyles["country-lists-title"]}>
+      <div className={styles["country-lists-title"]}>
         <h1>Countries</h1>
         <FormControl
           variant="filled"
@@ -113,41 +113,41 @@ const CountryList: FC<CountryCovidListProps> = ({
         </FormControl>
       </div>
 
-      <div className={countryListStyles["country-list-card-wrapper"]}>
+      <div className={styles["country-list-card-wrapper"]}>
         {covidInfo.map((country) => {
           return (
             <div
               key={country.ID}
-              className={countryListStyles["country-list-card"]}
+              className={styles["country-list-card"]}
             >
               <h1>{country.Country}</h1>
-              <p className={countryListStyles["country-list-card-title"]}>
+              <p className={styles["country-list-card-title"]}>
                 Confirmed Cases:
               </p>
-              <p className={countryListStyles["country-list-card-content"]}>
+              <p className={styles["country-list-card-content"]}>
                 {country.TotalConfirmed.toLocaleString()}
               </p>
-              <p className={countryListStyles["country-list-card-title"]}>
+              <p className={styles["country-list-card-title"]}>
                 Deaths:
               </p>
-              <p className={countryListStyles["country-list-card-content"]}>
+              <p className={styles["country-list-card-content"]}>
                 {country.TotalDeaths.toLocaleString()}
               </p>
-              <p className={countryListStyles["country-list-card-title"]}>
+              <p className={styles["country-list-card-title"]}>
                 Recovered:
               </p>
-              <p className={countryListStyles["country-list-card-content"]}>
+              <p className={styles["country-list-card-content"]}>
                 {country.TotalRecovered.toLocaleString()}
               </p>
-              <p className={countryListStyles["country-list-card-title"]}>
+              <p className={styles["country-list-card-title"]}>
                 Updated:
               </p>
               {country.Date === undefined ? (
-                <p className={countryListStyles["country-list-card-content"]}>
+                <p className={styles["country-list-card-content"]}>
                   Date Unvailable...
                 </p>
               ) : (
-                <p className={countryListStyles["country-list-card-content"]}>
+                <p className={styles["country-list-card-content"]}>
                   {dayjs(country.Date).format("MM/DD/YYYY, h:mm:ss a")}
                 </p>
               )}

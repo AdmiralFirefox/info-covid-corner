@@ -5,21 +5,21 @@ import { FaGlobeAmericas } from "react-icons/fa";
 import { RiVirusFill } from "react-icons/ri";
 import { MdHealthAndSafety } from "react-icons/md";
 import { IconContext } from "react-icons";
-import navbarStyles from "../../styles/Home.module.scss";
+import styles from "../../styles/navbar/NavbarMain.module.scss";
 
 const Navbar: FC = () => {
   const router = useRouter();
 
   return (
-    <nav className={navbarStyles["navbar-wrapper"]}>
+    <nav className={styles["navbar-wrapper"]}>
       <Link href="/">
         <a>
           <IconContext.Provider
             value={{
               className:
                 router.pathname == "/"
-                  ? navbarStyles["navbar-icon-active"]
-                  : navbarStyles["navbar-icon"],
+                  ? styles["navbar-icon-active"]
+                  : styles["navbar-icon"],
             }}
           >
             <FaGlobeAmericas />
@@ -32,8 +32,8 @@ const Navbar: FC = () => {
             value={{
               className:
                 router.pathname == "/covidinfo"
-                  ? navbarStyles["navbar-icon-active"]
-                  : navbarStyles["navbar-icon"],
+                  ? styles["navbar-icon-active"]
+                  : styles["navbar-icon"],
             }}
           >
             <RiVirusFill />
@@ -46,8 +46,8 @@ const Navbar: FC = () => {
             value={{
               className:
                 router.pathname == "/vaccineinfo"
-                  ? navbarStyles["navbar-icon-active"]
-                  : navbarStyles["navbar-icon"],
+                  ? styles["navbar-icon-active"]
+                  : styles["navbar-icon"],
             }}
           >
             <MdHealthAndSafety />

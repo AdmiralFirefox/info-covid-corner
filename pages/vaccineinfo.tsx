@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Fuse from "fuse.js";
 import CountryVaccineInfo from "../components/CountryVaccineInfo/CountryVaccineInfo";
-import vaccineInfoStyles from "../styles/Home.module.scss";
+import styles from "../styles/pages/VaccineInfo.module.scss";
 
 const VaccineInfo: NextPage<CountriesTypes> = ({ countries }) => {
   const [searchCountry, setSearchCountry] = useState("");
@@ -39,7 +39,7 @@ const VaccineInfo: NextPage<CountriesTypes> = ({ countries }) => {
 
   useEffect(() => {
     document.getElementsByTagName("body")[0].className =
-      vaccineInfoStyles["vaccine-info-background"];
+      styles["vaccine-info-background"];
 
     return () => {
       document.getElementsByTagName("body")[0].className = "";
@@ -74,9 +74,9 @@ const VaccineInfo: NextPage<CountriesTypes> = ({ countries }) => {
 
   return (
     <>
-      <div className={vaccineInfoStyles["vaccine-info-title"]}>
+      <div className={styles["vaccine-info-title"]}>
         <h1>Search Country Vaccine Info</h1>
-        <div className={vaccineInfoStyles["vaccine-info-logo"]}>
+        <div className={styles["vaccine-info-logo"]}>
           <Image
             src="/assets/injection.svg"
             alt="Vaccine Logo"
@@ -86,7 +86,7 @@ const VaccineInfo: NextPage<CountriesTypes> = ({ countries }) => {
         </div>
       </div>
 
-      <div className={vaccineInfoStyles["vaccine-info-input-form"]}>
+      <div className={styles["vaccine-info-input-form"]}>
         <Paper
           sx={{
             p: "0.5em",
@@ -107,16 +107,14 @@ const VaccineInfo: NextPage<CountriesTypes> = ({ countries }) => {
         </Paper>
       </div>
 
-      <div className={vaccineInfoStyles["vaccine-info-country-result"]}>
+      <div className={styles["vaccine-info-country-result"]}>
         {countryResults
           .filter((country) => country !== "Global")
           .map((country, index) => {
             return (
               <div
                 key={index}
-                className={
-                  vaccineInfoStyles["vaccine-info-country-result-card"]
-                }
+                className={styles["vaccine-info-country-result-card"]}
                 onClick={() => countrySelected(country)}
               >
                 {country}

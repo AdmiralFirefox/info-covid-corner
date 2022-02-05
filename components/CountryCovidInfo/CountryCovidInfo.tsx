@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import Axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import { CasesProps } from "../../types/CountryInfoTypes";
-import countryCasesInfoStyles from "../../styles/Home.module.scss";
+import styles from "../../styles/countrycovidinfo/CountryCovidInfo.module.scss";
 
 interface CountryProps {
   country: string;
@@ -21,10 +21,7 @@ const fetchData = async (country: string | undefined) => {
   );
 };
 
-const CountryCovidInfo: FC<CountryProps> = ({
-  country,
-  countryUnselected,
-}) => {
+const CountryCovidInfo: FC<CountryProps> = ({ country, countryUnselected }) => {
   const {
     data: countryInfo,
     isLoading,
@@ -48,9 +45,7 @@ const CountryCovidInfo: FC<CountryProps> = ({
     return (
       <>
         <div style={{ width: 0 }} onClick={countryUnselected}>
-          <IconContext.Provider
-            value={{ className: countryCasesInfoStyles["back-button"] }}
-          >
+          <IconContext.Provider value={{ className: styles["back-button"] }}>
             <IoArrowBackCircle />
           </IconContext.Provider>
         </div>
@@ -59,9 +54,9 @@ const CountryCovidInfo: FC<CountryProps> = ({
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
-          className={countryCasesInfoStyles["cases-loading-wrapper"]}
+          className={styles["cases-loading-wrapper"]}
         >
-          <div className={countryCasesInfoStyles["cases-loading-content"]}>
+          <div className={styles["cases-loading-content"]}>
             <CircularProgress color="secondary" size="3rem" />
             <h1>Loading Country...</h1>
           </div>
@@ -74,9 +69,7 @@ const CountryCovidInfo: FC<CountryProps> = ({
     return (
       <>
         <div style={{ width: 0 }} onClick={countryUnselected}>
-          <IconContext.Provider
-            value={{ className: countryCasesInfoStyles["back-button"] }}
-          >
+          <IconContext.Provider value={{ className: styles["back-button"] }}>
             <IoArrowBackCircle />
           </IconContext.Provider>
         </div>
@@ -85,9 +78,9 @@ const CountryCovidInfo: FC<CountryProps> = ({
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
-          className={countryCasesInfoStyles["cases-loading-wrapper"]}
+          className={styles["cases-loading-wrapper"]}
         >
-          <div className={countryCasesInfoStyles["cases-loading-content"]}>
+          <div className={styles["cases-loading-content"]}>
             <CircularProgress color="secondary" size="3rem" />
             <h1>Loading Country...</h1>
           </div>
@@ -100,14 +93,12 @@ const CountryCovidInfo: FC<CountryProps> = ({
     return (
       <>
         <div style={{ width: 0 }} onClick={countryUnselected}>
-          <IconContext.Provider
-            value={{ className: countryCasesInfoStyles["back-button"] }}
-          >
+          <IconContext.Provider value={{ className: styles["back-button"] }}>
             <IoArrowBackCircle />
           </IconContext.Provider>
         </div>
-        <div className={countryCasesInfoStyles["cases-error-wrapper"]}>
-          <div className={countryCasesInfoStyles["cases-error-content"]}>
+        <div className={styles["cases-error-wrapper"]}>
+          <div className={styles["cases-error-content"]}>
             <h1>Someting went wrong! Please try again later.</h1>
           </div>
         </div>
@@ -118,14 +109,12 @@ const CountryCovidInfo: FC<CountryProps> = ({
   return (
     <>
       <div style={{ width: 0 }} onClick={countryUnselected}>
-        <IconContext.Provider
-          value={{ className: countryCasesInfoStyles["back-button"] }}
-        >
+        <IconContext.Provider value={{ className: styles["back-button"] }}>
           <IoArrowBackCircle />
         </IconContext.Provider>
       </div>
 
-      <div className={countryCasesInfoStyles["country-cases-title"]}>
+      <div className={styles["country-cases-title"]}>
         <h1>{countryInfo?.data.All.country}</h1>
         <p>Continent: {countryInfo?.data.All.continent}</p>
         {countryInfo?.data.All.updated === undefined ? (
@@ -135,13 +124,13 @@ const CountryCovidInfo: FC<CountryProps> = ({
         )}
       </div>
 
-      <div className={countryCasesInfoStyles["country-cases-info-wrapper"]}>
-        <div className={countryCasesInfoStyles["country-cases-info-content"]}>
+      <div className={styles["country-cases-info-wrapper"]}>
+        <div className={styles["country-cases-info-content"]}>
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6 }}
-            className={countryCasesInfoStyles["country-cases-info-card-cases"]}
+            className={styles["country-cases-info-card-cases"]}
           >
             <h1>Confirmed Cases:</h1>
             <p>
@@ -158,7 +147,7 @@ const CountryCovidInfo: FC<CountryProps> = ({
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className={countryCasesInfoStyles["country-cases-info-card-deaths"]}
+            className={styles["country-cases-info-card-deaths"]}
           >
             <h1>Deaths:</h1>
             <p>
@@ -175,9 +164,7 @@ const CountryCovidInfo: FC<CountryProps> = ({
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className={
-              countryCasesInfoStyles["country-cases-info-card-recovered"]
-            }
+            className={styles["country-cases-info-card-recovered"]}
           >
             <h1>Recovered:</h1>
             <p>
@@ -194,9 +181,7 @@ const CountryCovidInfo: FC<CountryProps> = ({
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className={
-              countryCasesInfoStyles["country-cases-info-card-population"]
-            }
+            className={styles["country-cases-info-card-population"]}
           >
             <h1>Population:</h1>
             <p>

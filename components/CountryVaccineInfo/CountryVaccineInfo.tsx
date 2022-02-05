@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import Axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import { VaccineProps } from "../../types/CountryInfoTypes";
-import countryVaccinesInfoStyles from "../../styles/Home.module.scss";
+import styles from "../../styles/countryvaccineinfo/CountryVaccineInfo.module.scss";
 
 interface CountryProps {
   country: string;
@@ -50,7 +50,7 @@ const CountryVaccineInfo: FC<CountryProps> = ({
         <div style={{ width: 0 }} onClick={countryUnselected}>
           <IconContext.Provider
             value={{
-              className: countryVaccinesInfoStyles["vaccine-back-button"],
+              className: styles["vaccine-back-button"],
             }}
           >
             <IoArrowBackCircle />
@@ -61,9 +61,9 @@ const CountryVaccineInfo: FC<CountryProps> = ({
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
-          className={countryVaccinesInfoStyles["vaccine-loading-wrapper"]}
+          className={styles["vaccine-loading-wrapper"]}
         >
-          <div className={countryVaccinesInfoStyles["vaccine-loading-content"]}>
+          <div className={styles["vaccine-loading-content"]}>
             <CircularProgress color="secondary" size="3rem" />
             <h1>Loading Country...</h1>
           </div>
@@ -78,7 +78,7 @@ const CountryVaccineInfo: FC<CountryProps> = ({
         <div style={{ width: 0 }} onClick={countryUnselected}>
           <IconContext.Provider
             value={{
-              className: countryVaccinesInfoStyles["vaccine-back-button"],
+              className: styles["vaccine-back-button"],
             }}
           >
             <IoArrowBackCircle />
@@ -89,9 +89,9 @@ const CountryVaccineInfo: FC<CountryProps> = ({
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
-          className={countryVaccinesInfoStyles["vaccine-loading-wrapper"]}
+          className={styles["vaccine-loading-wrapper"]}
         >
-          <div className={countryVaccinesInfoStyles["vaccine-loading-content"]}>
+          <div className={styles["vaccine-loading-content"]}>
             <CircularProgress color="secondary" size="3rem" />
             <h1>Loading Country...</h1>
           </div>
@@ -106,14 +106,14 @@ const CountryVaccineInfo: FC<CountryProps> = ({
         <div style={{ width: 0 }} onClick={countryUnselected}>
           <IconContext.Provider
             value={{
-              className: countryVaccinesInfoStyles["vaccine-back-button"],
+              className: styles["vaccine-back-button"],
             }}
           >
             <IoArrowBackCircle />
           </IconContext.Provider>
         </div>
-        <div className={countryVaccinesInfoStyles["vaccine-error-wrapper"]}>
-          <div className={countryVaccinesInfoStyles["vaccine-error-content"]}>
+        <div className={styles["vaccine-error-wrapper"]}>
+          <div className={styles["vaccine-error-content"]}>
             <h1>Someting went wrong! Please try again later.</h1>
           </div>
         </div>
@@ -126,14 +126,14 @@ const CountryVaccineInfo: FC<CountryProps> = ({
       <div style={{ width: 0 }} onClick={countryUnselected}>
         <IconContext.Provider
           value={{
-            className: countryVaccinesInfoStyles["vaccine-back-button"],
+            className: styles["vaccine-back-button"],
           }}
         >
           <IoArrowBackCircle />
         </IconContext.Provider>
       </div>
 
-      <div className={countryVaccinesInfoStyles["vaccine-cases-title"]}>
+      <div className={styles["vaccine-cases-title"]}>
         <h1>{countryInfo?.data.All.country}</h1>
         <p>Continent: {countryInfo?.data.All.continent}</p>
         {countryInfo?.data.All.updated === undefined ? (
@@ -143,21 +143,13 @@ const CountryVaccineInfo: FC<CountryProps> = ({
         )}
       </div>
 
-      <div
-        className={countryVaccinesInfoStyles["country-vaccine-info-wrapper"]}
-      >
-        <div
-          className={countryVaccinesInfoStyles["country-vaccine-info-content"]}
-        >
+      <div className={styles["country-vaccine-info-wrapper"]}>
+        <div className={styles["country-vaccine-info-content"]}>
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6 }}
-            className={
-              countryVaccinesInfoStyles[
-                "country-vaccine-info-card-administered"
-              ]
-            }
+            className={styles["country-vaccine-info-card-administered"]}
           >
             <h1>Administered:</h1>
             <p>
@@ -174,9 +166,7 @@ const CountryVaccineInfo: FC<CountryProps> = ({
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className={
-              countryVaccinesInfoStyles["country-vaccine-info-card-vaccinated"]
-            }
+            className={styles["country-vaccine-info-card-vaccinated"]}
           >
             <h1>Vaccinated:</h1>
             <p>
@@ -193,11 +183,7 @@ const CountryVaccineInfo: FC<CountryProps> = ({
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className={
-              countryVaccinesInfoStyles[
-                "country-vaccine-info-card-partially-vaccinated"
-              ]
-            }
+            className={styles["country-vaccine-info-card-partially-vaccinated"]}
           >
             <h1>Partially Vaccinated:</h1>
             <p>
@@ -216,9 +202,7 @@ const CountryVaccineInfo: FC<CountryProps> = ({
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className={
-              countryVaccinesInfoStyles["country-vaccine-info-card-population"]
-            }
+            className={styles["country-vaccine-info-card-population"]}
           >
             <h1>Population:</h1>
             <p>

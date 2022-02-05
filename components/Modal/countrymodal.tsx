@@ -4,7 +4,7 @@ import { Size } from "../../types/WindowSizeTypes";
 import { styled } from "@mui/material/styles";
 import Button, { ButtonProps } from "@mui/material/Button";
 import { motion, AnimatePresence } from "framer-motion";
-import countryModalStyles from "../../styles/Home.module.scss";
+import styles from "../../styles/modal/CountryModal.module.scss";
 
 interface CountryModalProps {
   active: boolean;
@@ -54,7 +54,7 @@ const CountryModal: FC<CountryModalProps> = ({
             }}
             transition={{ duration: 0.5 }}
             onClick={() => handleCloseCountryModal(id)}
-            className={countryModalStyles["country-modal-backdrop"]}
+            className={styles["country-modal-backdrop"]}
             style={{ height: `${size.height}px` }}
           />
         )}
@@ -64,7 +64,7 @@ const CountryModal: FC<CountryModalProps> = ({
         {active && (
           <motion.div
             key={id}
-            className={countryModalStyles["country-modal-wrapper"]}
+            className={styles["country-modal-wrapper"]}
             initial={{ opacity: 0, top: "45%" }}
             animate={{
               opacity: 1,
@@ -84,25 +84,19 @@ const CountryModal: FC<CountryModalProps> = ({
               duration: 1,
             }}
           >
-            <div className={countryModalStyles["country-modal-content"]}>
+            <div className={styles["country-modal-content"]}>
               <h1>{countryTitle}</h1>
 
-              <p className={countryModalStyles["country-modal-label"]}>
-                New Confirmed:
-              </p>
-              <p className={countryModalStyles["country-modal-text-amount"]}>
+              <p className={styles["country-modal-label"]}>New Confirmed:</p>
+              <p className={styles["country-modal-text-amount"]}>
                 {newConfirmed.toLocaleString()}
               </p>
-              <p className={countryModalStyles["country-modal-label"]}>
-                New Deaths:
-              </p>
-              <p className={countryModalStyles["country-modal-text-amount"]}>
+              <p className={styles["country-modal-label"]}>New Deaths:</p>
+              <p className={styles["country-modal-text-amount"]}>
                 {newDeaths.toLocaleString()}
               </p>
-              <p className={countryModalStyles["country-modal-label"]}>
-                New Recovered:
-              </p>
-              <p className={countryModalStyles["country-modal-text-amount"]}>
+              <p className={styles["country-modal-label"]}>New Recovered:</p>
+              <p className={styles["country-modal-text-amount"]}>
                 {newRecovered.toLocaleString()}
               </p>
 

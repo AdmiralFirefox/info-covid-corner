@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Meta from "./Meta";
-import Navbar from "./Navbar/navbar";
+import Navbar from "./Navbar/NavbarMain";
 
 const Layout: FC = ({ children }) => {
   return (
