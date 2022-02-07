@@ -7,6 +7,7 @@ import CountUp from "react-countup";
 import { motion } from "framer-motion";
 import CountryList from "../components/CountryList/countrylist";
 import { CovidInfoProps } from "../types/CovidInfoTypes";
+import { CountryListProps } from "../types/CovidInfoTypes";
 import ReactPaginate from "react-paginate";
 import { SelectChangeEvent } from "@mui/material/Select";
 import styles from "../styles/pages/Home.module.scss";
@@ -16,33 +17,36 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
 
   const [sortCovidInfo, setSortCovidInfo] = useState("cases-desc");
 
-  const sortedCountry = countries.sort((a, b) =>
-    sortCovidInfo === "cases-asc"
-      ? a.TotalConfirmed > b.TotalConfirmed
-        ? 1
-        : -1
-      : sortCovidInfo === "cases-desc"
-      ? b.TotalConfirmed > a.TotalConfirmed
-        ? 1
-        : -1
-      : sortCovidInfo === "deaths-asc"
-      ? a.TotalDeaths > b.TotalDeaths
-        ? 1
-        : -1
-      : sortCovidInfo === "deaths-desc"
-      ? b.TotalDeaths > a.TotalDeaths
-        ? 1
-        : -1
-      : sortCovidInfo === "recovered-asc"
-      ? a.TotalRecovered > b.TotalRecovered
-        ? 1
-        : -1
-      : sortCovidInfo === "recovered-desc"
-      ? b.TotalRecovered > a.TotalRecovered
-        ? 1
-        : -1
-      : 0
-  );
+  const newCountries: CountryListProps[] = [];
+  const sortedCountry = newCountries
+    .concat(countries)
+    .sort((a, b) =>
+      sortCovidInfo === "cases-asc"
+        ? a.TotalConfirmed > b.TotalConfirmed
+          ? 1
+          : -1
+        : sortCovidInfo === "cases-desc"
+        ? b.TotalConfirmed > a.TotalConfirmed
+          ? 1
+          : -1
+        : sortCovidInfo === "deaths-asc"
+        ? a.TotalDeaths > b.TotalDeaths
+          ? 1
+          : -1
+        : sortCovidInfo === "deaths-desc"
+        ? b.TotalDeaths > a.TotalDeaths
+          ? 1
+          : -1
+        : sortCovidInfo === "recovered-asc"
+        ? a.TotalRecovered > b.TotalRecovered
+          ? 1
+          : -1
+        : sortCovidInfo === "recovered-desc"
+        ? b.TotalRecovered > a.TotalRecovered
+          ? 1
+          : -1
+        : 0
+    );
 
   const [pageNumber, setPageNumber] = useState(0);
 
