@@ -103,12 +103,12 @@ const CountryList: FC<CountryCovidListProps> = ({
               },
             }}
           >
-            <MenuItem value="cases-asc">Cases - Asc</MenuItem>
-            <MenuItem value="cases-desc">Cases - Desc</MenuItem>
-            <MenuItem value="deaths-asc">Deaths - Asc</MenuItem>
-            <MenuItem value="deaths-desc">Deaths - Desc</MenuItem>
-            <MenuItem value="recovered-asc">Recovered - Asc</MenuItem>
-            <MenuItem value="recovered-desc">Recovered - Desc</MenuItem>
+            <MenuItem value="cases-asc">Cases - Lowest</MenuItem>
+            <MenuItem value="cases-desc">Cases - Highest</MenuItem>
+            <MenuItem value="deaths-asc">Deaths - Lowest</MenuItem>
+            <MenuItem value="deaths-desc">Deaths - Highest</MenuItem>
+            <MenuItem value="recovered-asc">Recovered - Lowest</MenuItem>
+            <MenuItem value="recovered-desc">Recovered - Highest</MenuItem>
           </Select>
         </FormControl>
       </div>
@@ -116,10 +116,7 @@ const CountryList: FC<CountryCovidListProps> = ({
       <div className={styles["country-list-card-wrapper"]}>
         {covidInfo.map((country) => {
           return (
-            <div
-              key={country.ID}
-              className={styles["country-list-card"]}
-            >
+            <div key={country.ID} className={styles["country-list-card"]}>
               <h1>{country.Country}</h1>
               <p className={styles["country-list-card-title"]}>
                 Confirmed Cases:
@@ -127,21 +124,15 @@ const CountryList: FC<CountryCovidListProps> = ({
               <p className={styles["country-list-card-content"]}>
                 {country.TotalConfirmed.toLocaleString()}
               </p>
-              <p className={styles["country-list-card-title"]}>
-                Deaths:
-              </p>
+              <p className={styles["country-list-card-title"]}>Deaths:</p>
               <p className={styles["country-list-card-content"]}>
                 {country.TotalDeaths.toLocaleString()}
               </p>
-              <p className={styles["country-list-card-title"]}>
-                Recovered:
-              </p>
+              <p className={styles["country-list-card-title"]}>Recovered:</p>
               <p className={styles["country-list-card-content"]}>
                 {country.TotalRecovered.toLocaleString()}
               </p>
-              <p className={styles["country-list-card-title"]}>
-                Updated:
-              </p>
+              <p className={styles["country-list-card-title"]}>Updated:</p>
               {country.Date === undefined ? (
                 <p className={styles["country-list-card-content"]}>
                   Date Unvailable...
