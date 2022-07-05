@@ -60,7 +60,7 @@ const CovidInfoChart: FC<CovidInfoChartProps> = ({ country }) => {
     chartInfo?.data.All.dates !== undefined &&
     Object.keys(chartInfo?.data.All.dates)
       .splice(0, 15)
-      .map((data) => dayjs(data).format("MM/DD/YYYY"));
+      .map((data) => dayjs(data).add(1, "day").format("MM/DD/YYYY"));
 
   // Line Chart 1 Data
   const chartData =
