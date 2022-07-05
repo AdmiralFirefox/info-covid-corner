@@ -5,6 +5,7 @@ import Axios from "axios";
 import LinearProgress from "@mui/material/LinearProgress";
 import { motion } from "framer-motion";
 import { ChartInfoProps } from "../../types/CountryInfoTypes";
+import { options, options2 } from "../../config/config";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -54,19 +55,43 @@ const CovidInfoChart: FC<CovidInfoChartProps> = ({ country }) => {
     }
   );
 
+  // Chart Labels
   const chartLabels =
     chartInfo?.data.All.dates !== undefined &&
     Object.keys(chartInfo?.data.All.dates)
       .splice(0, 15)
       .map((data) => dayjs(data).format("MM/DD/YYYY"));
 
+  // Line Chart 1 Data
   const chartData =
     chartInfo?.data.All.dates !== undefined &&
     Object.values(chartInfo?.data.All.dates)
       .splice(0, 15)
       .map((data) => data);
 
-  // Line Chart Data
+  const chartData2 =
+    chartInfo?.data.All.dates !== undefined &&
+    Object.values(chartInfo?.data.All.dates)
+      .splice(1, 16)
+      .map((data) => data);
+
+  // Subtracting chartData and chartData2
+  const absDifference = (arr1: number[], arr2: number[]) => {
+    const res = [];
+    for (let i = 0; i < arr1.length; i++) {
+      const el = (arr1[i] || 0) - (arr2[i] || 0);
+      res[i] = el;
+    }
+    return res;
+  };
+
+  // Line Chart 2 Data
+  const combinedChart = absDifference(
+    chartData as number[],
+    chartData2 as number[]
+  );
+
+  // Line Chart 1 Data Config
   const userData = {
     labels: chartLabels as string[],
     datasets: [
@@ -82,58 +107,20 @@ const CovidInfoChart: FC<CovidInfoChartProps> = ({ country }) => {
     ],
   };
 
-  //Chart Options
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: "top" as const,
-        labels: {
-          font: {
-            size: 15,
-            weight: "700",
-          },
-          color: "#fff",
-        },
+  // Line Chart 2 Data Config
+  const userData2 = {
+    labels: chartLabels as string[],
+    datasets: [
+      {
+        label: "New Cases Each Day",
+        data: combinedChart,
+        borderColor: "#ba292e",
+        backgroundColor: "#ba292e",
+        pointBackgroundColor: "#e15d3a",
+        pointRadius: 5,
+        pointHoverRadius: 8,
       },
-      title: {
-        display: true,
-        text: "Confirmed Cases",
-        font: {
-          size: 25,
-        },
-        color: "#fff",
-      },
-    },
-    scales: {
-      y: {
-        ticks: {
-          color: "#e15d3a",
-          beginAtZero: true,
-          font: {
-            size: 13,
-            weight: "600",
-          },
-        },
-        grid: {
-          color: "hsl(0, 0%, 25%)",
-        },
-      },
-      x: {
-        ticks: {
-          color: "#e15d3a",
-          beginAtZero: true,
-          font: {
-            size: 13,
-            weight: "600",
-          },
-        },
-        grid: {
-          color: "hsl(0, 0%, 25%)",
-        },
-      },
-    },
+    ],
   };
 
   if (isLoading) {
@@ -189,6 +176,11 @@ const CovidInfoChart: FC<CovidInfoChartProps> = ({ country }) => {
       <div className={styles["chart-wrapper"]}>
         <div className={styles["chart-content"]}>
           <Line options={options} data={userData} />
+        </div>
+      </div>
+      <div className={styles["chart2-wrapper"]}>
+        <div className={styles["chart2-content"]}>
+          <Line options={options2} data={userData2} />
         </div>
       </div>
     </>

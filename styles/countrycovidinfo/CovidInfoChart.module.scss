@@ -1,11 +1,24 @@
 @use "../themeprovider/themeprovider" as theme-provider;
 
+// Chart 1
 .chart-wrapper {
   display: flex;
   justify-content: center;
-  margin: 4em 0em 5em 0em;
+  margin: 4em 0em;
 
   .chart-content {
+    width: min(67em, 95%);
+    height: 35em;
+  }
+}
+
+// Chart 2
+.chart2-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0em 0em 5em 0em;
+
+  .chart2-content {
     width: min(67em, 95%);
     height: 35em;
   }
