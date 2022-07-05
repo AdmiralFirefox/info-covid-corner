@@ -12,6 +12,14 @@ export interface CasesProps {
   };
 }
 
+export interface ChartInfoProps {
+  data: {
+    All: {
+      dates: number[] | undefined;
+    };
+  };
+}
+
 export interface VaccineProps {
   data: {
     All: {

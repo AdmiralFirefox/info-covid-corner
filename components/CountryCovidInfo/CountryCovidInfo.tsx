@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import Axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import { CasesProps } from "../../types/CountryInfoTypes";
+import CovidInfoChart from "./CovidInfoChart";
 import styles from "../../styles/countrycovidinfo/CountryCovidInfo.module.scss";
 
 interface CountryProps {
@@ -195,6 +196,8 @@ const CountryCovidInfo: FC<CountryProps> = ({ country, countryUnselected }) => {
           </motion.div>
         </div>
       </div>
+
+      <CovidInfoChart country={country} />
     </>
   );
 };

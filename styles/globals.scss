@@ -1,6 +1,10 @@
 @use "select/selectstyles";
 @use "pagination/pagination";
 
+:root {
+  color-scheme: dark;
+}
+
 html,
 body {
   padding: 0;

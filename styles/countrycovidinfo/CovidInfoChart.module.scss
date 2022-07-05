@@ -1,0 +1,53 @@
+@use "../themeprovider/themeprovider" as theme-provider;
+
+.chart-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 4em 0em 5em 0em;
+
+  .chart-content {
+    width: min(67em, 95%);
+    height: 35em;
+  }
+}
+
+// Loading Chart
+.loading-chart-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 4em;
+  margin-bottom: 5em;
+
+  .loading-chart-content {
+    background: theme-provider.$card-color;
+    padding: 2.5em;
+    border-radius: 15px;
+    width: min(90%, 30em);
+    text-align: center;
+
+    h1 {
+      color: theme-provider.$white-color;
+    }
+  }
+}
+
+//Error Loading Chart
+.chart-error-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 4em;
+  margin-bottom: 5em;
+
+  .chart-error-content {
+    text-align: center;
+    background: theme-provider.$red-background;
+    padding: 2em;
+    border-radius: 15px;
+    width: min(80%, 30em);
+
+    h1 {
+      color: theme-provider.$white-color;
+      font-size: min(max(1.5rem, 2.5vw), 2rem);
+    }
+  }
+}
