@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import Axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import { CasesProps } from "../../types/CountryInfoTypes";
-import CovidInfoChart from "./CovidInfoChart";
+import CovidInfoChart from "../Chart/CovidInfoChart";
 import styles from "../../styles/countrycovidinfo/CountryCovidInfo.module.scss";
 
 interface CountryProps {
@@ -197,7 +197,22 @@ const CountryCovidInfo: FC<CountryProps> = ({ country, countryUnselected }) => {
         </div>
       </div>
 
-      <CovidInfoChart country={country} />
+      <CovidInfoChart
+        country={country}
+        status="confirmed"
+        chart1Label="Confirmed Cases"
+        chart2Label="New Cases Each Day"
+        chart1Title="Number of Confirmed Cases"
+        chart2Title="Number of New Cases Each Day"
+      />
+      <CovidInfoChart
+        country={country}
+        status="deaths"
+        chart1Label="Confirmed Deaths"
+        chart2Label="New Deaths Each Day"
+        chart1Title="Number of Confirmed Deaths"
+        chart2Title="Number of New Deaths Each Day"
+      />
     </>
   );
 };

@@ -16,7 +16,7 @@
 .chart2-wrapper {
   display: flex;
   justify-content: center;
-  margin: 0em 0em 5em 0em;
+  margin: 0em 0em 4em 0em;
 
   .chart2-content {
     width: min(67em, 95%);
@@ -28,8 +28,7 @@
 .loading-chart-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 4em;
-  margin-bottom: 5em;
+  margin: 5em 0em;
 
   .loading-chart-content {
     background: theme-provider.$card-color;
@@ -48,8 +47,7 @@
 .chart-error-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 4em;
-  margin-bottom: 5em;
+  margin: 5em 0em;
 
   .chart-error-content {
     text-align: center;

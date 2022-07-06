@@ -5,7 +5,6 @@ import Axios from "axios";
 import LinearProgress from "@mui/material/LinearProgress";
 import { motion } from "framer-motion";
 import { ChartInfoProps } from "../../types/CountryInfoTypes";
-import { options, options2 } from "../../config/config";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -31,27 +30,42 @@ ChartJS.register(
 
 interface CovidInfoChartProps {
   country: string;
+  status: string;
+  chart1Label: string;
+  chart2Label: string;
+  chart1Title: string;
+  chart2Title: string;
 }
 
-const CountryChartInfo = async (country: string | undefined) => {
+const CountryChartInfo = async (
+  country: string | undefined,
+  status: string | undefined
+) => {
   return await Axios.get(
-    `https://covid-api.mmediagroup.fr/v1/history?country=${country}&status=confirmed`
+    `https://covid-api.mmediagroup.fr/v1/history?country=${country}&status=${status}`
   );
 };
 
-const CovidInfoChart: FC<CovidInfoChartProps> = ({ country }) => {
+const CovidInfoChart: FC<CovidInfoChartProps> = ({
+  country,
+  status,
+  chart1Label,
+  chart2Label,
+  chart1Title,
+  chart2Title,
+}) => {
   const {
     data: chartInfo,
     isLoading,
     isError,
     isFetching,
   }: UseQueryResult<ChartInfoProps, Error> = useQuery<ChartInfoProps, Error>(
-    ["chartInfo", country],
-    () => CountryChartInfo(country),
+    ["chartInfo", country, status],
+    () => CountryChartInfo(country, status),
     {
       refetchOnWindowFocus: false,
       staleTime: 30000,
-      enabled: Boolean(country),
+      enabled: Boolean(country) && Boolean(status),
     }
   );
 
@@ -96,7 +110,7 @@ const CovidInfoChart: FC<CovidInfoChartProps> = ({ country }) => {
     labels: chartLabels as string[],
     datasets: [
       {
-        label: "Confirmed Cases",
+        label: chart1Label,
         data: chartData as number[],
         borderColor: "#ba292e",
         backgroundColor: "#ba292e",
@@ -112,7 +126,7 @@ const CovidInfoChart: FC<CovidInfoChartProps> = ({ country }) => {
     labels: chartLabels as string[],
     datasets: [
       {
-        label: "New Cases Each Day",
+        label: chart2Label,
         data: combinedChart,
         borderColor: "#ba292e",
         backgroundColor: "#ba292e",
@@ -121,6 +135,114 @@ const CovidInfoChart: FC<CovidInfoChartProps> = ({ country }) => {
         pointHoverRadius: 8,
       },
     ],
+  };
+
+  //Chart Options
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "top" as const,
+        labels: {
+          font: {
+            size: 15,
+            weight: "700",
+          },
+          color: "#fff",
+        },
+      },
+      title: {
+        display: true,
+        text: chart1Title,
+        font: {
+          size: 25,
+        },
+        color: "#fff",
+      },
+    },
+    scales: {
+      y: {
+        ticks: {
+          color: "#e15d3a",
+          beginAtZero: true,
+          font: {
+            size: 13,
+            weight: "600",
+          },
+        },
+        grid: {
+          color: "hsl(0, 0%, 25%)",
+        },
+      },
+      x: {
+        ticks: {
+          color: "#e15d3a",
+          beginAtZero: true,
+          font: {
+            size: 13,
+            weight: "600",
+          },
+        },
+        grid: {
+          color: "hsl(0, 0%, 25%)",
+        },
+      },
+    },
+  };
+
+  //Chart2 Options
+  const options2 = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "top" as const,
+        labels: {
+          font: {
+            size: 15,
+            weight: "700",
+          },
+          color: "#fff",
+        },
+      },
+      title: {
+        display: true,
+        text: chart2Title,
+        font: {
+          size: 25,
+        },
+        color: "#fff",
+      },
+    },
+    scales: {
+      y: {
+        ticks: {
+          color: "#e15d3a",
+          beginAtZero: true,
+          font: {
+            size: 13,
+            weight: "600",
+          },
+        },
+        grid: {
+          color: "hsl(0, 0%, 25%)",
+        },
+      },
+      x: {
+        ticks: {
+          color: "#e15d3a",
+          beginAtZero: true,
+          font: {
+            size: 13,
+            weight: "600",
+          },
+        },
+        grid: {
+          color: "hsl(0, 0%, 25%)",
+        },
+      },
+    },
   };
 
   if (isLoading) {
