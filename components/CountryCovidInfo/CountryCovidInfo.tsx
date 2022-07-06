@@ -202,17 +202,17 @@ const CountryCovidInfo: FC<CountryProps> = ({ country, countryUnselected }) => {
         country={country}
         status="confirmed"
         chart1Label="Confirmed Cases"
-        chart2Label="New Cases Each Day"
+        chart2Label="New Cases"
         chart1Title="Number of Confirmed Cases"
-        chart2Title="Number of New Cases Each Day"
+        chart2Title="Number of New Cases"
       />
       <CovidInfoChart
         country={country}
         status="deaths"
         chart1Label="Confirmed Deaths"
-        chart2Label="New Deaths Each Day"
+        chart2Label="New Deaths"
         chart1Title="Number of Confirmed Deaths"
-        chart2Title="Number of New Deaths Each Day"
+        chart2Title="Number of New Deaths"
       />
     </>
   );

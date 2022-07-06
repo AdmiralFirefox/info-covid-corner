@@ -219,18 +219,18 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
       <CovidInfoChart
         country="Global"
         status="confirmed"
-        chart1Label="Confirmed Cases"
-        chart2Label="New Cases Each Day"
-        chart1Title="Number of Confirmed Cases"
-        chart2Title="Number of New Cases Each Day"
+        chart1Label="Global Confirmed Cases"
+        chart2Label="Global New Cases"
+        chart1Title="Number of Global Confirmed Cases"
+        chart2Title="Number of Global New Cases"
       />
       <CovidInfoChart
         country="Global"
         status="deaths"
-        chart1Label="Confirmed Deaths"
-        chart2Label="New Deaths Each Day"
-        chart1Title="Number of Confirmed Deaths"
-        chart2Title="Number of New Deaths Each Day"
+        chart1Label="Global Confirmed Deaths"
+        chart2Label="Global New Deaths"
+        chart1Title="Number of Global Confirmed Deaths"
+        chart2Title="Number of Global New Deaths"
       />
 
       <CountryList
