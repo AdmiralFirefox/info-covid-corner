@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { GetStaticProps } from "next";
 import type { NextPage } from "next";
 import dayjs from "dayjs";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
-import CovidInfoChart from "../components/Chart/CovidInfoChart";
+const CovidInfoChart = dynamic(
+  () => import("../components/Chart/CovidInfoChart")
+);
 import CountryList from "../components/CountryList/countrylist";
 import { CovidInfoProps } from "../types/CovidInfoTypes";
 import { CountryListProps } from "../types/CovidInfoTypes";

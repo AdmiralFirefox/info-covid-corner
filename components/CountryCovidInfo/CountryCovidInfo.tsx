@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { useQuery, UseQueryResult } from "react-query";
 import dayjs from "dayjs";
+import dynamic from "next/dynamic";
 import { IoArrowBackCircle } from "react-icons/io5";
 import { IconContext } from "react-icons";
 import CountUp from "react-countup";
@@ -8,7 +9,7 @@ import { motion } from "framer-motion";
 import Axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import { CasesProps } from "../../types/CountryInfoTypes";
-import CovidInfoChart from "../Chart/CovidInfoChart";
+const CovidInfoChart = dynamic(() => import("../Chart/CovidInfoChart"));
 import styles from "../../styles/countrycovidinfo/CountryCovidInfo.module.scss";
 
 interface CountryProps {
