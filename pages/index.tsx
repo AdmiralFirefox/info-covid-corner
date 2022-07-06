@@ -5,6 +5,7 @@ import type { NextPage } from "next";
 import dayjs from "dayjs";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
+import CovidInfoChart from "../components/Chart/CovidInfoChart";
 import CountryList from "../components/CountryList/countrylist";
 import { CovidInfoProps } from "../types/CovidInfoTypes";
 import { CountryListProps } from "../types/CovidInfoTypes";
@@ -211,6 +212,23 @@ const Home: NextPage<CovidInfoProps> = ({ covidData }) => {
           </motion.div>
         </div>
       </div>
+
+      <CovidInfoChart
+        country="Global"
+        status="confirmed"
+        chart1Label="Confirmed Cases"
+        chart2Label="New Cases Each Day"
+        chart1Title="Number of Confirmed Cases"
+        chart2Title="Number of New Cases Each Day"
+      />
+      <CovidInfoChart
+        country="Global"
+        status="deaths"
+        chart1Label="Confirmed Deaths"
+        chart2Label="New Deaths Each Day"
+        chart1Title="Number of Confirmed Deaths"
+        chart2Title="Number of New Deaths Each Day"
+      />
 
       <CountryList
         covidInfo={displayCountryData}
