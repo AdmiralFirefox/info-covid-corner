@@ -1,7 +1,9 @@
 # Info Covid Corner
 
 **&ast;&ast;Update&ast;&ast;
- Last October 31, 2022, the [M-Media-Group COVID-19 API](https://github.com/M-Media-Group/Covid-19-API) has been deprecated. You can no longer search COVID cases and vaccines of each individual country 🙁.**
+ Last October 31, 2022, the [M-Media-Group COVID-19 API](https://github.com/M-Media-Group/Covid-19-API) has been deprecated. You can no longer search COVID cases and vaccines of each individual country 🙁**
+
+**Go [here](https://github.com/AdmiralFirefox/info-covid-tracker) for the updated version of the website.** 
 
 <br />
 
