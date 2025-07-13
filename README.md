@@ -28,14 +28,14 @@ A website that tracks all information regarding COVID-19. The data updates every
 
 **When searching for a country's confirmed cases, deaths and recovered.**
 
-<img src="https://user-images.githubusercontent.com/79429518/177559731-e763816d-7cb1-4e71-aa0a-62ccadf91dac.gif" alt="" width="100%" height="100%">
+<img src="https://user-images.githubusercontent.com/79429518/177559731-e763816d-7cb1-4e71-aa0a-62ccadf91dac.gif" alt="" width="100%">
 
 <br />
 <br />
 
 **When searching for a country's administered, vaccinated and partially vaccinated population information.**
 
-<img src="https://user-images.githubusercontent.com/79429518/177559883-5279bb67-3db0-45b7-bf74-89a7430125b0.gif" alt="" width="100%" height="100%">
+<img src="https://user-images.githubusercontent.com/79429518/177559883-5279bb67-3db0-45b7-bf74-89a7430125b0.gif" alt="" width="100%">
 
 <br />
 
